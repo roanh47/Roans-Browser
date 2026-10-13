@@ -1,5 +1,5 @@
-[submodule "thorium-libjxl"]
-	path = thorium-libjxl
+[submodule "libjxl"]
+	path = libjxl
 	url = https://github.com/Alex313031/thorium-libjxl.git
 	branch = main
 [submodule "infra/upgrader"]

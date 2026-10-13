@@ -1,6 +1,6 @@
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/alex313031/roansbrowser?label=Version%3A)](https://github.com/roanh47/Roans-Browser/releases)
-[![GitHub](https://img.shields.io/github/license/alex313031/roansbrowser?color=green&label=License%3A)](https://github.com/roanh47/Roans-Browser/blob/main/LICENSE.md)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/alex313031/roansbrowser?color=blueviolet&label=Commit%20Activity%3A)](https://github.com/roanh47/Roans-Browser/commits/main/)
+[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/roanh47/Roans-Browser?label=Version%3A)](https://github.com/roanh47/Roans-Browser/releases)
+[![GitHub](https://img.shields.io/github/license/roanh47/Roans-Browser?color=green&label=License%3A)](https://github.com/roanh47/Roans-Browser/blob/main/LICENSE.md)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/roanh47/Roans-Browser?color=blueviolet&label=Commit%20Activity%3A)](https://github.com/roanh47/Roans-Browser/commits/main/)
 [![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/ChromiumBrowser?style=social)](https://www.reddit.com/r/ChromiumBrowser/)
 
 # Roan's Browser
@@ -70,8 +70,8 @@ See > https://github.com/roanh47/Roans-Browser/blob/main/docs/BUILDING.md
 See > https://github.com/roanh47/Roans-Browser/tree/main/infra/DEBUG#readme
 
 -------
-&nbsp;&minus; https://www.reddit.com/r/ChromiumBrowser/ is a subreddit I made for Roan's Browser and general Roan's Browser/Chromium discussion, https://roanheemstra.nl/ is the website I made for it, and https://alex313031.blogspot.com/ is a blog I made relating to Roan's Browser/RoansBrowserOS. \
-&nbsp;&minus; I also build ChromiumOS (now called RoansBrowserOS) with Roan's Browser, Codecs, Widevine, linux-firmware/modules, and extra packages at > https://github.com/Alex313031/ChromiumOS/
+&nbsp;&minus; This is a rebranded fork of [Thorium](https://github.com/Alex313031/thorium) by Alex313031. Upstream attribution (LICENSE, submodule URLs, credits below) is kept intact; only names, icons and product strings are changed. Upstream channels: https://www.reddit.com/r/ChromiumBrowser/ , https://alex313031.blogspot.com/ , and ChromiumOS builds at > https://github.com/Alex313031/ChromiumOS/ \
+&nbsp;&minus; Fork-specific conventions, brand names and build/CI notes are in [AGENTS.md](https://github.com/roanh47/Roans-Browser/blob/main/AGENTS.md).
 
 &nbsp;&minus; Thanks to https://github.com/robrich999/ for some info and fixes that went into this project.\
 &nbsp;&minus; Thanks to https://github.com/midzer/ for support and helping with builds. \
