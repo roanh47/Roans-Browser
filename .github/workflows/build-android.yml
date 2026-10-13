@@ -34,6 +34,8 @@ jobs:
     name: android ${{ matrix.profile }}
     runs-on: ubuntu-latest
     timeout-minutes: 350
+    env:
+      TERM: xterm   # setup.sh eindigt met `tput sgr0`; zonder TERM geeft dat exit 2
     strategy:
       fail-fast: false
       matrix:
@@ -127,6 +129,12 @@ jobs:
           set -e
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
           cd "$HOME/roansbrowser"
+          # Dode regel in het script zelf: `cp -r -v arm/build/*` — die map bestaat ook
+          # upstream niet, en omdat de rest van copyAndroid() een &&-keten is, werden
+          # arm/third_party/*, arm/android/* (iconen) en de Android-PGO-download stil
+          # overgeslagen. Die regel vervangen door een no-op.
+          sed -i -e '\#cp -r -v arm/build/\*#c\true &&' setup.sh
+          grep -n '^true &&' setup.sh
           stage "setup.sh --android start"
           ./setup.sh --android
           stage "setup.sh klaar"

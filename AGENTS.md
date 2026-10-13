@@ -37,6 +37,11 @@ source tree itself is fetched by the upstream build scripts and is not committed
   filled the 113 GB free on the runner in 95 min and died with `no space left on device` (run
   38388352300). Use `fetch --no-history`, prune `~/.cipd/pkgs` after the sync, and keep ~60 GB free
   for `out/`.
+- `setup.sh` has two traps on CI: (a) `cp -r -v arm/build/*` refers to a directory that does
+  not exist upstream either, and because `copyAndroid()` is one `&&` chain the rest silently
+  becomes a no-op — including `arm/third_party/*`, `arm/android/*` (branding icons) and the
+  Android PGO download; (b) it ends with `tput sgr0`, so with `TERM` unset the script exits 2
+  even after a clean run. Patch the first, export `TERM=xterm` for the second.
 - `fetch` does NOT create the target directory: it runs `gclient config` in the current
   directory and checks the tree out there (`fetch_configs/chromium.py` has `expected_root = "src"`,
   no chdir/makedirs in `fetch.py`). Run `mkdir -p ~/chromium && cd ~/chromium && fetch ...`, or the
