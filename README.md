@@ -1,87 +1,45 @@
-[![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/roanh47/Roans-Browser?label=Version%3A)](https://github.com/roanh47/Roans-Browser/releases)
-[![GitHub](https://img.shields.io/github/license/roanh47/Roans-Browser?color=green&label=License%3A)](https://github.com/roanh47/Roans-Browser/blob/main/LICENSE.md)
-[![GitHub commit activity](https://img.shields.io/github/commit-activity/w/roanh47/Roans-Browser?color=blueviolet&label=Commit%20Activity%3A)](https://github.com/roanh47/Roans-Browser/commits/main/)
-[![Subreddit subscribers](https://img.shields.io/reddit/subreddit-subscribers/ChromiumBrowser?style=social)](https://www.reddit.com/r/ChromiumBrowser/)
-
 # Roan's Browser
 
-<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/roansbrowser_ver_2048_grey_old.png">
+My own Chromium build. Fork of [Thorium](https://github.com/Alex313031/thorium) by
+Alex313031, which is a patched Chromium. Same patches and build scripts, my branding.
 
-## Chromium fork for linux named after [radioactive element No. 90](https://en.wikipedia.org/wiki/Roan's Browser). Windows/MacOS/RasPi/Android/Other builds see below.
+## What is in it
 
-- Always built with the latest [LTS](https://support.google.com/chrome/a/answer/12239814) version of [Chromium](https://www.chromium.org/).
-- Intended to behave like and have the featureset of Google Chrome, with differences/patches/enhancements listed below.
-- Compiler optimizations such as LTO, CFlag, LDFlag, LLVM Loop, and PGO, to make it FAST. :boom:  
-  In addition, we release builds tailored to different CPUs with different SIMD instructions, for even more execution speed.
-  We offer [SSE3](https://en.wikipedia.org/wiki/SSE3), [SSE4](https://en.wikipedia.org/wiki/SSE4), [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions), and [AVX2](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2) builds, named as such in the Releases.
-  If you are unsure which one to download, see [About SIMD](./docs/ABOUT_RELEASES.md#about-simd).
+- uBlock Origin preinstalled for every new profile, via `infra/default_apps/external_extensions.json`.
+- Manifest V2 kept alive so the full uBlock Origin keeps working:
+  `kManifestV2Availability = 2` in `src/extensions/browser/extension_prefs.cc`, plus the
+  `allow-legacy-mv2-extensions` flag.
+- All of Thorium's patches and GN args are still there: `docs/PATCHES.md`, `infra/args.list`.
+- Windows, Linux, macOS and Android build scripts: `docs/BUILDING.md`, `build_android.sh`,
+  `arm/setup_arm.sh`, `win_scripts/`.
 
-### Other Builds &nbsp;<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/winflag_animated.gif" width="34"> &nbsp;<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/AVX2.png" width="48"> &nbsp;<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/apple.png" width="30"> &nbsp;<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/Android_Robot.svg" width="26"> &nbsp;<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/Raspberry_Pi_Logo.svg" width="24"> &nbsp;<img src="https://raw.githubusercontent.com/Alex313031/roansbrowser-win7/main/logos/STAGING/win7/compatible-with-windows-7.png" width="28">
-&nbsp;&ndash; Windows builds are here > [Roan's Browser Win](https://github.com/Alex313031/Roan's Browser-Win) \
-&nbsp;&ndash; MacOS (M1 and X64) builds are located at > [Roan's Browser Mac](https://github.com/Alex313031/Roan's Browser-Mac) \
-&nbsp;&ndash; Android (arm32 & arm64) builds are located at > [Roan's Browser Android](https://github.com/Alex313031/Roan's Browser-Android) \
-&nbsp;&ndash; Raspberry Pi builds are located at > [Roan's Browser Raspi](https://github.com/Alex313031/Roan's Browser-Raspi) For the Pi 3B/3B+ and Pi 4/400. \
-&nbsp;&ndash; Special builds are located at > [Roan's Browser Special](https://github.com/Alex313031/Roan's Browser-Special) You can find 32 bit builds for old CPUs here. \
-&nbsp;&ndash; Roan's Browser Website with deb repo for auto-updating on Linux > https://roanheemstra.nl/ \
-&nbsp;&ndash; __NEW__: Windows XP / Vista / 7 / 8 / 8.1 builds at > [Roan's Browser Legacy](https://github.com/roanh47/Roans-Browser-legacy)
+## Branding
 
-### FEATURES & DIFFERENCES BETWEEN CHROMIUM AND ROANSBROWSER <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/bulb_light.svg#gh-dark-mode-only"> <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/bulb_dark.svg#gh-light-mode-only">
-> - Various compiler flags that improve performance and target [AVX](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions) CPU's (read [PATCHES.md](https://github.com/roanh47/Roans-Browser/blob/main/docs/PATCHES.md))
-> - Experimental [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) support.
-> - Includes [Widevine](https://www.widevine.com/), [All Codecs](https://tools.woolyss.com/html5-audio-video-tester/), and proper HEVC/H.265 support on Linux and Windows.
-> - [JPEG XL](https://jpeg.org/jpegxl/) Image File Format support restored and turned on by default.
-> - [FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol) URL support restored and enabled by default.
-> - Restore the classic Chrome UI from before M124, instead of the new "Chrome Refresh 2023" UI. See the [Explainer](./docs/TH_24.md). Enable the flag `chrome://flags/#roansbrowser-2024` to try it!
-> - Restore the classic "Download Shelf". Enable the flag `chrome://flags/#download-shelf` to use it.
-> - Patches from Debian including font rendering patch, VAAPI Patch, Audio Sandbox, GPU drivers, GTK auto dark mode, native notifications patch, title bar patch, and... the VDPAU Patch! (Rejoice Nvidia users)
-> - [DoH](https://en.wikipedia.org/wiki/DNS_over_HTTPS) (DNS over HTTPS) patches from Bromite.
-> - Enable [Do Not Track](https://allaboutdnt.com/) by default.
-> - Add and enable [Global Privacy Control](https://globalprivacycontrol.org/).
-> - Show full URLs including trailing slashes in address bar by default.
-> - Disable [FLOC](https://en.wikipedia.org/wiki/Federated_Learning_of_Cohorts) and "[Privacy Sandbox](https://en.wikipedia.org/wiki/Privacy_Sandbox)".
-> - Disable annoying Default Browser Infobar warning.
-> - Disable annoying IPH (In Product Help) promos.
-> - Adds [DuckDuckGo](https://duckduckgo.com/), [Brave Search](https://search.brave.com/), [Ecosia](https://www.ecosia.org/), [Ask.com](https://www.ask.com/), and [Yandex.com](https://yandex.com/) in US and other locales, along with the normal search engines.
-> - Always use the local NTP (New Tab Page) regardless of search engine.
-> - Fix icons when distilling page content in [Reader Mode](https://www.howtogeek.com/423643/how-to-use-google-chromes-hidden-reader-mode/).
-> - Enable new Menu UI when right clicking the Reload button. (Adds 'Normal Reload', 'Hard Reload', and 'Clear Cache and Hard Reload')
-> - Home button, Chrome Labs button, and Bookmarks bar shown by default.
-> - [Prefetch](https://www.chromium.org/developers/design-documents/dns-prefetching/) settings updated to respect privacy.
-> - Patches for [GN](https://chromium.googlesource.com/chromium/src/tools/gn/+/48062805e19b4697c5fbd926dc649c78b6aaa138/README.md) and [chrome_sandbox](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/design/sandbox.md) when building.
-> - Remove the addition of the Chrome APT sources.list during installation.
-> - Various new flags either developed from scratch, or added from Ungoogled Chromium. See [PATCHES.md](https://github.com/roanh47/Roans-Browser/blob/main/docs/PATCHES.md)
-> - Enable Parallel Downloading by Default.
-> - Inclusion of <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/pak.png" width="16"> [pak](https://github.com/roanh47/Roans-Browser/tree/main/pak_src#readme) a utility for packing and unpacking the [&#42;.pak](https://textslashplain.com/2022/05/03/chromium-internals-pak-files/) files in Roan's Browser or any other Chromium based browser.
-> - Logo and Branding/Naming changed to the Roan's Browser logo, Roan's Browser name, and "Alex313031" being appended to "The Chromium Authors" in credits, etc.
-> - .desktop file includes useful cmdline flags that enable experimental or useful features. (See [PATCHES.md](https://github.com/roanh47/Roans-Browser/blob/main/docs/PATCHES.md))
-> - Includes installer patches and files to include [ChromeDriver](https://chromedriver.chromium.org/home) and *roansbrowser_shell* [(content_shell)](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/testing/web_tests_in_content_shell.md), with a .desktop file being provided for roansbrowser_shell (named roansbrowser-shell.desktop and shows in desktop environments as Roan's Browser Content Shell). These are also included in the Windows releases, but it doesn't make a shorcut, although a .png and .ico is in the install directory for you to make your own shortcut with an icon. You can also run content_shell with the command roansbrowser-shell (custom wrapper for it, located in /usr/bin/). You can run ChromeDriver at /usr/bin/chromedriver or chromedriver.exe on Windows. Also, patches for abseil library and mini_installer when building with AVX on Windows.
-> - Right clicking the launcher after install gives three additional desktop actions, one to open roansbrowser-shell, another to open in Safe Mode which disables any flags one has set in chrome://flags until the next launch, and lastly to open in Dark Mode which appends the --force-dark-mode flag.
+- Display name `Roan's Browser`, single word `RoansBrowser`, lowercase `roansbrowser`,
+  app id `nl.roanheemstra.RoansBrowser`.
+- Upstream attribution is untouched: `LICENSE.md` (BSD-3-Clause, Alexander Frick),
+  the submodule URLs (`libjxl`, `infra/upgrader`), Widevine and Flatpak refs.
+- Tag `pre-rebrand` is the last state before the rename, so the diff is one command away.
 
-&nbsp;&plus;&nbsp;Other patches and useful chrome://flags flags too long to list here. ʘ‿ʘ
+## Status
 
-- For more info, read the [PATCHES.md](https://github.com/roanh47/Roans-Browser/blob/main/docs/PATCHES.md) file.
-- Known bugs are in the [BUGS.md](https://github.com/roanh47/Roans-Browser/blob/main/infra/BUGS.md) file.
-- A list of Chromium command line flags can be found at > https://peter.sh/experiments/chromium-command-line-switches
+- Rebrand: done (names, icons, product strings, app id).
+- No compiled build yet. A cold Chromium build does not fit a GitHub-hosted runner: the job cap is
+  6 hours and this build needs 10-20 hours and ~75 GB, on a runner with 4 vCPU and 15 GB RAM.
+  A real APK needs a self-hosted builder (about 16 cores, 64 GB RAM, 300 GB disk) attached to this
+  repo. App-layer builds can run in GitHub Actions without that.
+- Android extensions: upstream Chromium sets `enable_extensions = !is_android`, so they are off on
+  Android. Kiwi Browser turns them on with `enable_extensions = true` in its Android args, and
+  upstream is porting that as `enable_extensions_core` / `enable_desktop_android_extensions`.
+  Porting it to this tree is still open.
 
-## Building <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/build_light.svg#gh-dark-mode-only"> <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/build_dark.svg#gh-light-mode-only">
-See > https://github.com/roanh47/Roans-Browser/blob/main/docs/BUILDING.md
+## Building
 
-## Debugging <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/bug.svg" width="28">
-See > https://github.com/roanh47/Roans-Browser/tree/main/infra/DEBUG#readme
+Use the upstream instructions in `docs/BUILDING.md` (Windows, Linux, macOS) and
+`build_android.sh` / `arm/setup_arm.sh` for Android and ARM. `AGENTS.md` has the fork rules, the
+brand naming, the uBlock/MV2 details and the measured CI numbers.
 
--------
-&nbsp;&minus; This is a rebranded fork of [Thorium](https://github.com/Alex313031/thorium) by Alex313031. Upstream attribution (LICENSE, submodule URLs, credits below) is kept intact; only names, icons and product strings are changed. Upstream channels: https://www.reddit.com/r/ChromiumBrowser/ , https://alex313031.blogspot.com/ , and ChromiumOS builds at > https://github.com/Alex313031/ChromiumOS/ \
-&nbsp;&minus; Fork-specific conventions, brand names and build/CI notes are in [AGENTS.md](https://github.com/roanh47/Roans-Browser/blob/main/AGENTS.md).
+## License
 
-&nbsp;&minus; Thanks to https://github.com/robrich999/ for some info and fixes that went into this project.\
-&nbsp;&minus; Thanks to https://github.com/midzer/ for support and helping with builds. \
-&nbsp;&minus; Also thanks to https://github.com/bromite/bromite, https://github.com/saiarcot895/chromium-ubuntu-build, https://github.com/Eloston/ungoogled-chromium, https://github.com/GrapheneOS/Vanadium, and https://github.com/iridium-browser/iridium-browser for patch code. \
-&nbsp;&minus; The pak_src dir, and the binaries in *pack_src/bin* are credited to @freeer https://github.com/myfreeer/chrome-pak-customizer/
-
-<!-- &nbsp;&nbsp; __NOTE:__ [*libpepflashplayer.so*](https://github.com/roanh47/Roans-Browser/blob/main/infra/libpepflashplayer.so) is included for posterity and can be used to enable Adobe Flash on older Chromium releases. ʘ‿ʘ -->
-
-*Thanks for using Roan's Browser!*
-
-<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/RoansBrowser90_504.jpg" width="200">
-
-<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/GitHub/GitHub-Mark-Light-32px.png#gh-dark-mode-only"> <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/GitHub/GitHub-Mark-32px.png#gh-light-mode-only">
+BSD-3-Clause, see `LICENSE.md`. Copyright of the upstream work belongs to Alexander Frick
+(Thorium) and the Chromium project.
