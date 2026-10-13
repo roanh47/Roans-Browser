@@ -37,6 +37,10 @@ source tree itself is fetched by the upstream build scripts and is not committed
   filled the 113 GB free on the runner in 95 min and died with `no space left on device` (run
   38388352300). Use `fetch --no-history`, prune `~/.cipd/pkgs` after the sync, and keep ~60 GB free
   for `out/`.
+- `fetch` does NOT create the target directory: it runs `gclient config` in the current
+  directory and checks the tree out there (`fetch_configs/chromium.py` has `expected_root = "src"`,
+  no chdir/makedirs in `fetch.py`). Run `mkdir -p ~/chromium && cd ~/chromium && fetch ...`, or the
+  tree lands in `~/src` and every repo script (which uses `~/chromium/src`) fails.
 - Consequence: app-layer APK builds (Gradle/WebView) belong in GitHub Actions. A compiled Chromium APK
   needs a self-hosted builder with ~16 cores, 64 GB RAM and 300 GB disk attached to this repo. Never
   promise an APK out of a hosted runner.

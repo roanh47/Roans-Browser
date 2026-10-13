@@ -1,0 +1,671 @@
+android repo	Set up job	﻿2026-10-13T12:51:47.5816886Z Current runner version: '2.337.0'
+android repo	Set up job	2026-10-13T12:51:47.5851516Z ##[group]Runner Image Provisioner
+android repo	Set up job	2026-10-13T12:51:47.5853064Z Hosted Compute Agent
+android repo	Set up job	2026-10-13T12:51:47.5854257Z Version: 20261002.596
+android repo	Set up job	2026-10-13T12:51:47.5855413Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+android repo	Set up job	2026-10-13T12:51:47.5856748Z Build Date: 2026-10-02T22:28:27Z
+android repo	Set up job	2026-10-13T12:51:47.5857850Z Worker ID: {3f4105df-d7c1-4bda-a0ef-738a8f6c2255}
+android repo	Set up job	2026-10-13T12:51:47.5859139Z Region: eastus
+android repo	Set up job	2026-10-13T12:51:47.5860065Z Cloud: Azure
+android repo	Set up job	2026-10-13T12:51:47.5860998Z ##[endgroup]
+android repo	Set up job	2026-10-13T12:51:47.5863788Z ##[group]Operating System
+android repo	Set up job	2026-10-13T12:51:47.5865260Z Ubuntu
+android repo	Set up job	2026-10-13T12:51:47.5866225Z 24.04.5
+android repo	Set up job	2026-10-13T12:51:47.5867079Z LTS
+android repo	Set up job	2026-10-13T12:51:47.5867923Z ##[endgroup]
+android repo	Set up job	2026-10-13T12:51:47.5868932Z ##[group]Runner Image
+android repo	Set up job	2026-10-13T12:51:47.5869939Z Image: ubuntu-24.04
+android repo	Set up job	2026-10-13T12:51:47.5871355Z Version: 20261004.327.1
+android repo	Set up job	2026-10-13T12:51:47.5873333Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+android repo	Set up job	2026-10-13T12:51:47.5876682Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+android repo	Set up job	2026-10-13T12:51:47.5878324Z ##[endgroup]
+android repo	Set up job	2026-10-13T12:51:47.5880327Z ##[group]GITHUB_TOKEN Permissions
+android repo	Set up job	2026-10-13T12:51:47.5883226Z Contents: read
+android repo	Set up job	2026-10-13T12:51:47.5884563Z Metadata: read
+android repo	Set up job	2026-10-13T12:51:47.5885468Z ##[endgroup]
+android repo	Set up job	2026-10-13T12:51:47.5888552Z Secret source: Actions
+android repo	Set up job	2026-10-13T12:51:47.5890197Z Cache mode: write
+android repo	Set up job	2026-10-13T12:51:47.5891905Z Prepare workflow directory
+android repo	Set up job	2026-10-13T12:51:47.6365000Z Prepare all required actions
+android repo	Set up job	2026-10-13T12:51:47.6414589Z Getting action download info
+android repo	Set up job	2026-10-13T12:51:47.8214442Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+android repo	Set up job	2026-10-13T12:51:48.0712950Z Complete job name: android repo
+android repo	0. Schijf maximaal vrijmaken	﻿2026-10-13T12:51:48.1676902Z ##[group]Run sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/az /usr/share/swift \
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1678229Z ^[[36;1msudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/az /usr/share/swift \^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1679341Z ^[[36;1m            /usr/local/share/boost /usr/local/.ghcup /usr/local/lib/node_modules \^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1680267Z ^[[36;1m            /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY" || true^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1680976Z ^[[36;1mdocker image prune -af || true^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1681585Z ^[[36;1mdf -h / | tee -a "$HOME/timings.txt"^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1682339Z ^[[36;1mecho "vCPU: $(nproc) | RAM: $(free -g | awk '/Mem:/{print $2}') GB"^[[0m
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1928733Z shell: /usr/bin/bash -e {0}
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.1929685Z ##[endgroup]
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3691886Z Deleted Images:
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3692603Z untagged: ghcr.io/github/gh-aw-firewall/agent:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3693446Z untagged: ghcr.io/github/gh-aw-firewall/agent@sha256:c4ab1d48d533cc7daaa5f2e1193d1a644888242fb8813d49c6de46d129224b76
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3694599Z deleted: sha256:d1d510080c4d6741ea6a805d8f522bb83040186cef3474cc665932a84f6f9a3b
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3695191Z deleted: sha256:a36ad49dd6a643355c7cfaeb88a936f7b5497be9ac5e359d77838b59a06a9484
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3695749Z deleted: sha256:c3b9d9d6c2048d6377865d46d9673644e36d68d1d705423c08f73fd770951ebd
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3696274Z deleted: sha256:f36d7f24b908694df65fd9ca11bc8cea1695cdefde4bc25917d255ab780a6c5a
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3696825Z deleted: sha256:0d3a8a0909078dac23ab090b36fc7c1c2aed4077ffc1a3737b2f349982e3bf18
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3697356Z deleted: sha256:3fbc856d47390f0a1e6452df997b32fab464f1403072452dfc365be442554ec2
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3697892Z deleted: sha256:65f9ebd4727d61b55afd5938f51345aa07b3bc49c8166cde2dcddb9db23c49d8
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3698507Z deleted: sha256:f097e2497bb7a3a93ba583355f9aa0969e9b5ed0c4b7195da497a573d26d0587
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3699123Z deleted: sha256:fae4af64a1d0eaa231b93632655a22515ca4a2df2eb6a152c19244260acbc686
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3699657Z deleted: sha256:947b4c7bd3af9212604e76d1dc3328aa4e3553f05895e6d697ba0c8b73c3858f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3700511Z deleted: sha256:3e409bffaeb687c59d9765b9337e45d9c2586e839da7fa201cfc40181203c527
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3701077Z deleted: sha256:b0abfb0029661d51cd75ec5346b9fe8ddbd4d3eb06ebcdf3f87be435c7a2efcf
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3701655Z deleted: sha256:0927740f6eb9022de196045cbec3e9c9a749e1b9babf5fd2ac481e6a9f138fcd
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3702178Z deleted: sha256:dbf84fb136b1360134c9ca1e70b839610a7cdefb49b2b3f830651b2c278d6243
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3702708Z deleted: sha256:d2c2d920e811c3ab0bab67d153df423777d2fb96bc4b4e863ad34a607ffdd31f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3703361Z deleted: sha256:2fd7520b580ec2804a912be352699931f4d94eed938d13cdd56dd6716acfcc24
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3703902Z deleted: sha256:eaf36430f3a5bd8d9c5909e9eb4574058da9ffce2b8e6c43059dab2429795db0
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3704780Z deleted: sha256:c6ea6aafe9dc03cc6517d39086b07b646355a11bb1c9ab9d563315d3ca81e40f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3705326Z deleted: sha256:cbaf391e670933f026c05c7dedec3faf8f194b6c2d83b0d5694ad68323c8077c
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3705807Z untagged: ghcr.io/dependabot/dependabot-updater-core:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3706464Z untagged: ghcr.io/dependabot/dependabot-updater-core@sha256:a5d0dc2d722bfe644fc186e3da58ca49eea8605b05001031f011afcb0946437d
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3707180Z deleted: sha256:226ed17086e98ddeee3160baabfb3f78a829d92364d4133509d18d2418c9962e
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3707822Z deleted: sha256:a4b37f3c3617c1181c4bd735abc926cc64939bbe4e534a571c57b06573c69ed4
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3708357Z deleted: sha256:f9dda1566037eef47f8cb9dec17ba2b28020635a3e9f569eb918b2b03336ef03
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3708883Z deleted: sha256:55b82155bfb308b2d87edaf948abd91e04a74d1eff676f8e20a5ddb1fe12ea7f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3709418Z deleted: sha256:c2e18b3df92d4cccbdbba1c79600054ea52ceac5a68a9a9bf1e469fd4e7c2dc8
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3710086Z deleted: sha256:7c01245d0daa8ab74e7b8943a126337ab56e1de160aa26c216eebed691ed09a2
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3710894Z deleted: sha256:c37398791ef4025533b74164475c93f61a48638861a0ef60d01ccb33dc4651f9
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3711483Z deleted: sha256:44f38d6ca23ee40568b9a8303d373e563993cf6dbfcbbcd3f4628697cfe4d204
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3712452Z deleted: sha256:e9f7c247b87eb18217443248dbb6f1cfc2a5365eeb8ac65fa27ddf1f5e31b187
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3713466Z deleted: sha256:3fea50b4a75138e7e325f4f3a9cd98b28ddc99bd56d9134af70ec36f78946a98
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3714664Z deleted: sha256:187fb0bdb8d16bedfdd75b896bc2d58a83fc0c2d3c7bb1d6d067d73f3326f903
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3715615Z deleted: sha256:c0126d25af1c42e5bae3fe68ac215775c239673f562341470b2a1ff519e3698b
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3716437Z deleted: sha256:d81fb2a7c6ee3be05fdefaa7fd223be219c1ab172083ec1b994c3ecda33ac0a8
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3716898Z untagged: ghcr.io/github/gh-aw-firewall/squid:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3717489Z untagged: ghcr.io/github/gh-aw-firewall/squid@sha256:90a46d2e6e910ace2c09c2dcf6b56dc374ed513d9da642a4e9fcfcd6e9248a9d
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3718148Z deleted: sha256:22967111f2812e3549c638bafb97d3d5de396bb09e7a6b84173d58b979433abb
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3718680Z deleted: sha256:fe61a40e72d1b55573e81cfd30c9c67bdf654ab7499fffa20aa5f1e99d3ce2b3
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3719210Z deleted: sha256:6622e63bac11514b91f8cd292706df7511ef5e53c05cc34cf4e0547046806349
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3719735Z deleted: sha256:99ce13b82c73a9cb85ecf17be027d4af9c0fc013359175e13b41d62c534388cd
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3720399Z deleted: sha256:233058792c4175e827ae35c05186a1a7a1883cdd7ecd714c18fdbd05e5ee6f5d
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3720901Z untagged: ghcr.io/github/gh-aw-firewall/api-proxy:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3721529Z untagged: ghcr.io/github/gh-aw-firewall/api-proxy@sha256:a5a37489635109334a5e2b5cb2eaba32e8c8f1a89d8dea6009baa962a8904c4a
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3722205Z deleted: sha256:6b335d6fe22a4651a1f265fea4267b837129d7dfe5279c12f46e6d080182ee44
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3722730Z deleted: sha256:57bbc946e2694df38e8baf48cc03cca3d041fee0db6904f0fa2ecd086eb6c665
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3723243Z deleted: sha256:647298b6666399d02b3532375456b2f9e67085b875cbbafd00a19d980c7a64a9
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3723773Z deleted: sha256:7c3450d927f76cf245455ad60b2167ffbf9eecedf71107c8700999b6ed20bbe8
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3725592Z deleted: sha256:571099cedc705b69a7a433c124f6f641f87cf06fa7eab02deaa040c72e09449c
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3726147Z deleted: sha256:59822d62b99bd1d07714c99b45500342321788ea351ae428da40b399797d471f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3726670Z deleted: sha256:74fbe05a3fb74eabc46606fb21bfcdd547ca31892af3577c3388abee99709ee0
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3727210Z deleted: sha256:d4cfb75713e7cfcd135cc71b3c80caadc432d96f2ddd0a2ea8475e117893399b
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3727733Z deleted: sha256:9c745b5bd5a166422f81bb165ae5b0d11faf4a7d12384cd8a33d866e56bf2e5d
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3728252Z deleted: sha256:7bef4835a0bbba6744a4c9b2708597845518261ee6db084bae1f40dcffecca97
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3728771Z deleted: sha256:f49d3aa361fffa2b2e94a63d2b3e6c2673485c02a7b18dbcfb4d164a12cad5cc
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3729285Z deleted: sha256:1fc800ab7c27044f68113e1c7f474000aa447219dbd77479447ab6ad1b86b2d7
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3729808Z deleted: sha256:9c1e16c1243231b6b2b3f73fb3dadefc3d37c0c7c539e99409b3b1f5d41ee184
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3730337Z deleted: sha256:ff9b85e5f9ce82bac83d2f8e3097d4b731eb1c268226154012db9a54f9da2cb2
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3730857Z deleted: sha256:a8aabe94b66ee52be2cc5a04366a49ff3fc40c2945530afcced3919350ddfdf5
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3731376Z deleted: sha256:74d97c428c51a828f9051a7a40a53ff1fc99e54fc30323ce36760701b0b7f711
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3731819Z untagged: ghcr.io/github/github-mcp-server:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3732404Z untagged: ghcr.io/github/github-mcp-server@sha256:7aaeeec9ae4fe9a736d100c1ff0798f3c219b5009e05f5d3945fcacb13cc196b
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3733084Z deleted: sha256:70d716031cd8fbdb03ea648b706ea4ac706b6d33b8f420bac7479c2f441c4261
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3733611Z deleted: sha256:407ddefc6e57c644a3e138b7dbcf96c123214628adf111bc1b8626888bda78b3
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3734479Z deleted: sha256:1e1cabb4a65e50fb84bc4612619b0025e4a1d06d5e38699d1e67e5a8e4f333db
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3735267Z deleted: sha256:86766d6a6e947f4a599c6e23307470f8f75732fc3d143ec1f3260e4406202bee
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3736160Z deleted: sha256:2944471a0bbdfb4985f84f8d287edb5cd982d1060589e707a6cb0cbe82cdfe89
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3737128Z deleted: sha256:5e555e7975e2202f21fb93d460d701a340ade876f3afccb70d702f1dc5ab80db
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3738042Z deleted: sha256:2a080d78a1c5e3615170178f1c6f4c726340da9d5ff2926cb66e2fd97851da9d
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3739005Z deleted: sha256:af4a114029fbf94a3cf75c5cfaa5e947019cd6faae4b800c9306ac9079363def
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3739971Z deleted: sha256:c7b875d3de914680ec64ba55be5865955ec595e7370812894ee68a502e2e8391
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3741023Z deleted: sha256:85d9b4c1ef131ee259952a35027e942f79626303ab143eff7ef00d55201bd06f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3741987Z deleted: sha256:492c6420fd79f4cd4e761bec1e74db6044d45adb5b073a82289af68aa3162e3f
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3742955Z deleted: sha256:14b282df61c0316a80216cec27e753777da93de1d7e062072ef3b517f984fcf1
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3743919Z deleted: sha256:fdaace00fc3f072b9060f703047b30a2c14d8bde7dbbf31a396802c032923732
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3745684Z deleted: sha256:7f73eafc455b691b504d4d3c3f3c7be90e135c1d0ba4988b2cac29579cd6b567
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3746683Z deleted: sha256:32a12b65383df6b6553c8d59f691675ca1980f8cec9c51cce163c3c8f7665a41
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3747615Z deleted: sha256:5217b01660b515ac25ea055a8bd04a20790c7d6bd6085374b59b9081283911af
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3748553Z deleted: sha256:7223ea1323e8c1159ec17f07d35acc27bdd1cc2bc3ed425b44ef21dac9915db0
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3749303Z untagged: ghcr.io/github/gh-aw-mcpg:latest
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3750185Z untagged: ghcr.io/github/gh-aw-mcpg@sha256:69920365d9f0143ed853743c319b2bd4614ca7f9537474ad8eff0c47da84c5a4
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3751355Z deleted: sha256:a589ff70a2020d1b1c5e77be8a997173f4eed8fe2230ae03893c330994c27440
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3752328Z deleted: sha256:f6f64d8c05fe09a3dd0f862e98e1a328d3d04066599e52943909ed085832edc1
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3753267Z deleted: sha256:8c4097e58e0f06073d33d3a39e8382033cf595f6e7f12463c7b41c59636458b3
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3754441Z deleted: sha256:66f209f4bb598ee46b2b245fdd3d616d92551c3b8c7963beb917398f4aeb3c71
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3755618Z deleted: sha256:83d924042ae52d38952f6fc718db75e574675264bd2a59bba16d73375bd7e731
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3756547Z deleted: sha256:1514500ea842bcd611f5b5bda57e12dfd11c0c1f9c27c58b39f5e8a2f548904c
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3757487Z deleted: sha256:09df3d36d3df02c2be99898ac9e632f91e02fb8262d715c6c0e25927ed2e5dd6
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3758457Z deleted: sha256:6ccd0f9257b0a94f3e50f50a9cdc766408da9d5ded13721abdac5fc34f663f49
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3759404Z deleted: sha256:4b35d13cdd93533c08ba296080135dfc555c64a3a0a4284ac739b93e53ee63f6
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3760321Z deleted: sha256:70834cf3bba44803e61e4c9d424992d91e06c34dcbfa92d388fc493c51c26e3a
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3761134Z deleted: sha256:1a597abbdca4511eb22f2e0b00a5d8b6d6129e7669ed56d751b9d1d611d80bfa
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3761674Z deleted: sha256:d5c28ed9f7e287d23038493d8b2dbea75a712162b907ec2fab74295d6bbf77fc
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3762216Z deleted: sha256:34884abbe92863fce933ed7c39c0e045631af0ed86d5cc0dfbdf9fdca426ce3c
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3762530Z 
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3762643Z Total reclaimed space: 1.852GB
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3763151Z Filesystem      Size  Used Avail Use% Mounted on
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3763698Z /dev/root       145G   28G  117G  19% /
+android repo	0. Schijf maximaal vrijmaken	2026-10-13T12:54:05.3764316Z vCPU: 4 | RAM: 15 GB
+android repo	1. Basis + deze repo + depot_tools	﻿2026-10-13T12:54:05.3915827Z ##[group]Run set -e
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3916167Z ^[[36;1mset -e^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3916497Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3916882Z ^[[36;1mstage "start"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3917117Z ^[[36;1msudo apt-get update -qq^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3917629Z ^[[36;1msudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git curl lsb-release file python3 python3-pip^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3918541Z ^[[36;1mgit clone -q --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git "$HOME/depot_tools"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3919300Z ^[[36;1mgit clone -q --recurse-submodules https://github.com/roanh47/Roans-Browser.git "$HOME/roansbrowser"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3919941Z ^[[36;1mcp -v "$HOME/roansbrowser/depot_tools/autoninja" "$HOME/depot_tools/autoninja"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3920484Z ^[[36;1mVER=$(grep -oP 'THOR_VER="\K[^"]+' "$HOME/roansbrowser/version.sh")^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3920861Z ^[[36;1mecho "VER=$VER" >> "$GITHUB_ENV"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3921241Z ^[[36;1mstage "depot_tools + repo klaar (Chromium tag $VER)"^[[0m
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3984928Z shell: /usr/bin/bash -e {0}
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.3985222Z ##[endgroup]
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:05.4083824Z 2026-10-13T12:54:05Z start
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:22.0050590Z '/home/runner/roansbrowser/depot_tools/autoninja' -> '/home/runner/depot_tools/autoninja'
+android repo	1. Basis + deze repo + depot_tools	2026-10-13T12:54:22.0085901Z 2026-10-13T12:54:22Z depot_tools + repo klaar (Chromium tag 138.0.7204.306)
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	﻿2026-10-13T12:54:22.0133290Z ##[group]Run set -e
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0133575Z ^[[36;1mset -e^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0133815Z ^[[36;1mexport PATH="$HOME/depot_tools:$PATH"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0134434Z ^[[36;1mcd "$HOME"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0134760Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0135192Z ^[[36;1mstage "fetch chromium start (--no-history)"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0135529Z ^[[36;1mfetch --nohooks --no-history chromium^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0135828Z ^[[36;1mstage "fetch chromium klaar"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0136174Z ^[[36;1mdu -sh "$HOME/chromium/src/.git" | tee -a "$HOME/timings.txt"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0136569Z ^[[36;1mdf -h / | tail -1 | tee -a "$HOME/timings.txt"^[[0m
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0199749Z shell: /usr/bin/bash -e {0}
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0200023Z env:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0200217Z   VER: 138.0.7204.306
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0200450Z ##[endgroup]
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:22.0290564Z 2026-10-13T12:54:22Z fetch chromium start (--no-history)
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:32.6487722Z WARNING: Your metrics.cfg file was invalid or nonexistent. A new one will be created.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:34.2900896Z [0:01:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:34.2901345Z [0:01:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:44.2905904Z [0:01:10] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:44.2907080Z [0:01:10]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:54.2906288Z [0:01:20] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:54.2906858Z [0:01:20]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:04.2908979Z [0:01:30] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:04.2909415Z [0:01:30]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:14.2911119Z [0:01:40] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:14.2913845Z [0:01:40]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:24.2914249Z [0:01:50] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:24.2914812Z [0:01:50]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:34.2915869Z [0:02:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:34.2917148Z [0:02:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:44.2921934Z [0:02:10] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:44.2922386Z [0:02:10]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:54.2921620Z [0:02:20] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:54.2922165Z [0:02:20]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:04.2926664Z [0:02:30] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:04.2927082Z [0:02:30]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:14.2927377Z [0:02:40] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:14.2928406Z [0:02:40]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:24.2932064Z [0:02:50] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:24.2932986Z [0:02:50]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:34.2934061Z [0:03:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:34.2934884Z [0:03:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:44.2936682Z [0:03:10] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:44.2937062Z [0:03:10]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:54.2936891Z [0:03:20] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:54.2937308Z [0:03:20]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:04.2939951Z [0:03:30] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:04.2940539Z [0:03:30]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:14.2941955Z [0:03:40] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:14.2942354Z [0:03:40]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:24.2946882Z [0:03:50] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:24.2947423Z [0:03:50]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:34.2947027Z [0:04:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:34.2947419Z [0:04:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:44.2952250Z [0:04:10] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:44.2952859Z [0:04:10]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:54.2952127Z [0:04:20] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:54.2952846Z [0:04:20]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:04.2957639Z [0:04:30] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:04.2958321Z [0:04:30]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:14.2956955Z [0:04:40] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:14.2957391Z [0:04:40]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:24.2959471Z [0:04:50] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:24.2959950Z [0:04:50]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:34.2961950Z [0:05:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:34.2964579Z [0:05:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:44.2966070Z [0:05:10] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:44.2966536Z [0:05:10]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:54.2966486Z [0:05:20] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:54.2966919Z [0:05:20]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2968528Z [0:05:30] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2971505Z [0:05:30]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2972099Z [0:05:30] STALL DETECTED: gclient has been silent for 5 minutes.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2972751Z [0:05:30] Currently active tasks:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2973805Z [0:05:30]    src (Running for 0:05:30)
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2974628Z [0:05:30] Suggestions:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2975250Z [0:05:30] 1. Authentication: Check for background prompts.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2976094Z [0:05:30] 2. Network: Check your internet connection and proxies.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2976910Z [0:05:30] 3. Locks: Check for other git processes holding a lock.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:00:04.2977908Z [0:05:30] 4. Verbose: Run gclient with --verbose to see more output.
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:14.2988249Z [0:07:40] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:14.2991209Z [0:07:40]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:24.2990914Z [0:07:50] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:24.2993488Z [0:07:50]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:34.2993509Z [0:08:00] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:34.2994636Z [0:08:00]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:43.4299083Z [0:08:09] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:43.4300563Z [0:08:09]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:43.5450799Z [0:08:09] Still working on:
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:43.5451299Z [0:08:09]   src
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:05:01.5993541Z 160>WARNING: subprocess '"git" "-c" "core.deltaBaseCacheLimit=2g" "fetch" "--no-tags" "--depth=1" "--" "origin" "46bea9879127d0ff1c6601b078e2ce98e83fcd33"' in /home/runner/src/third_party/ots/src failed; will retry after a short nap...
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5215185Z Running: gclient root
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5218439Z Running: gclient config --spec 'solutions = [
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5219061Z   {
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5219396Z     "name": "src",
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5219876Z     "url": "https://chromium.googlesource.com/chromium/src.git",
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5220234Z     "custom_deps": {},
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5220547Z     "custom_vars": {},
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5220888Z   },
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5221194Z ]
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5221612Z '
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5221956Z Running: gclient sync --nohooks --no-history
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5222466Z Running: git config diff.ignoreSubmodules dirty
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5424383Z 2026-10-13T13:07:14Z fetch chromium klaar
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5451294Z du: cannot access '/home/runner/chromium/src/.git': No such file or directory
+android repo	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:07:14.5465518Z /dev/root       145G   58G   88G  40% /
+android repo	3. Build-deps (Android) installeren	﻿2026-10-13T13:07:14.5590054Z ##[group]Run set +e
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5590395Z ^[[36;1mset +e^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5590653Z ^[[36;1mcd "$HOME/chromium/src"^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5591068Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5591516Z ^[[36;1mstage "install-build-deps start"^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5591885Z ^[[36;1mif [ -f build/install-build-deps.sh ]; then^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5592396Z ^[[36;1m  sudo ./build/install-build-deps.sh --android --no-prompt --unsupported^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5592843Z ^[[36;1melse^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5593249Z ^[[36;1m  sudo python3 build/install-build-deps.py --android --no-prompt --unsupported^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5593694Z ^[[36;1mfi^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.5593963Z ^[[36;1mstage "install-build-deps klaar (exit $?)"^[[0m
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6098574Z shell: /usr/bin/bash -e {0}
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6098890Z env:
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6099124Z   VER: 138.0.7204.306
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6099381Z ##[endgroup]
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6187002Z /home/runner/work/_temp/51ba7763-69c6-4b82-9c4c-cfb4b108acc1.sh: line 2: cd: /home/runner/chromium/src: No such file or directory
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6201593Z 2026-10-13T13:07:14Z install-build-deps start
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6626057Z python3: can't open file '/home/runner/work/Roans-Browser/Roans-Browser/build/install-build-deps.py': [Errno 2] No such file or directory
+android repo	3. Build-deps (Android) installeren	2026-10-13T13:07:14.6680596Z 2026-10-13T13:07:14Z install-build-deps klaar (exit 2)
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	﻿2026-10-13T13:07:14.6715386Z ##[group]Run set -e
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6715684Z ^[[36;1mset -e^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6715899Z ^[[36;1mCR="$HOME/chromium/src"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6716271Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6716647Z ^[[36;1mcd "$CR"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6716864Z ^[[36;1mstage "tag $VER ophalen"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6717218Z ^[[36;1mgit fetch --depth=1 origin "refs/tags/$VER:refs/tags/$VER"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6717590Z ^[[36;1mgit checkout -f "tags/$VER"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6717934Z ^[[36;1mgit log -1 --format='%h %cd %s' | tee -a "$HOME/timings.txt"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6718367Z ^[[36;1m# bestanden die version.sh ook kopieert^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6718674Z ^[[36;1mcd "$HOME/roansbrowser"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6718980Z ^[[36;1mcp -v src/build/vs_toolchain.py "$CR/build/"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6719298Z ^[[36;1mcp -v libjxl/src/DEPS "$CR/"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6719584Z ^[[36;1mcp -v libjxl/src/.gitmodules "$CR/"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6719980Z ^[[36;1mcp -v libjxl/src/third_party/.gitignore "$CR/third_party/"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6720315Z ^[[36;1mcd "$CR"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6720551Z ^[[36;1mexport PATH="$HOME/depot_tools:$PATH"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6720839Z ^[[36;1mSHALLOW=""^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6721221Z ^[[36;1mif gclient sync --help 2>&1 | grep -q -- '--no-history'; then SHALLOW="--no-history"; fi^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6721698Z ^[[36;1mstage "gclient sync start (shallow=$SHALLOW)"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6722135Z ^[[36;1mgclient sync --force --reset --nohooks --delete_unversioned_trees $SHALLOW^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6722551Z ^[[36;1mstage "gclient sync klaar"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6722991Z ^[[36;1mstage "runhooks + sysroot"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6723245Z ^[[36;1mgclient runhooks^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6723576Z ^[[36;1mbuild/linux/sysroot_scripts/install-sysroot.py --arch=amd64^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6723955Z ^[[36;1mstage "version-stappen klaar"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6724651Z ^[[36;1mdu -sh "$CR/.git" "$HOME/.cipd" 2>/dev/null | tee -a "$HOME/timings.txt"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6725081Z ^[[36;1mdf -h / | tail -1 | tee -a "$HOME/timings.txt"^[[0m
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6786224Z shell: /usr/bin/bash -e {0}
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6786475Z env:
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6786656Z   VER: 138.0.7204.306
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6786870Z ##[endgroup]
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6860191Z /home/runner/work/_temp/f9526910-2e75-40f8-9c85-164bb67c046e.sh: line 4: cd: /home/runner/chromium/src: No such file or directory
+android repo	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:07:14.6898952Z ##[error]Process completed with exit code 1.
+android repo	8. Metingen + eventuele APK uploaden	﻿2026-10-13T13:07:14.7043745Z ##[group]Run actions/upload-artifact@v4
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7044284Z with:
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7044498Z   name: metingen-repo
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7044735Z   if-no-files-found: warn
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7044971Z   retention-days: 30
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7045531Z   path: /home/runner/timings.txt
+android repo	8. Metingen + eventuele APK uploaden	/home/runner/ninja.log
+android repo	8. Metingen + eventuele APK uploaden	/home/runner/args-repo.gn
+android repo	8. Metingen + eventuele APK uploaden	/home/runner/chromium/src/out/roansbrowser/apks/*.apk
+android repo	8. Metingen + eventuele APK uploaden	
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7046137Z   compression-level: 6
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7046352Z   overwrite: false
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7046563Z   include-hidden-files: false
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7046789Z env:
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7046961Z   VER: 138.0.7204.306
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:14.7047160Z ##[endgroup]
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0044370Z (node:25651) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0045312Z (Use `node --trace-deprecation ...` to show where the warning was created)
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0105776Z Multiple search paths detected. Calculating the least common ancestor of all paths
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0111262Z The least common ancestor is /home/runner. This will be the root directory of the artifact
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0112676Z With the provided path, there will be 1 file uploaded
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0116187Z Artifact name is valid!
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.0117326Z Root directory input is valid!
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.2274676Z Beginning upload of artifact content to blob storage
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.2468535Z (node:25651) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.2957610Z Uploaded bytes 367
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.3143831Z Finished uploading artifact content to blob storage!
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.3145086Z SHA256 digest of uploaded artifact zip is ed9ed1eae989995152306b2dcbd0b69c9266a4792501474c0f184f97b45b3a50
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.3147263Z Finalizing artifact upload
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.5763406Z Artifact metingen-repo.zip successfully finalized. Artifact ID 11815517420
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.5764870Z Artifact metingen-repo has been successfully uploaded! Final size is 367 bytes. Artifact ID is 11815517420
+android repo	8. Metingen + eventuele APK uploaden	2026-10-13T13:07:15.5773542Z Artifact download URL: https://github.com/roanh47/Roans-Browser/actions/runs/38400432719/artifacts/11815517420
+android repo	Complete job	﻿2026-10-13T13:07:15.5993235Z Cleaning up orphan processes
+android repo	Complete job	2026-10-13T13:07:15.6473082Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+android fast	Set up job	﻿2026-10-13T12:51:47.6374483Z Current runner version: '2.337.0'
+android fast	Set up job	2026-10-13T12:51:47.6394159Z ##[group]Runner Image Provisioner
+android fast	Set up job	2026-10-13T12:51:47.6394728Z Hosted Compute Agent
+android fast	Set up job	2026-10-13T12:51:47.6395144Z Version: 20261002.596
+android fast	Set up job	2026-10-13T12:51:47.6395520Z Commit: c3d12f3313a95f25162a1503be624f3b0617f8c0
+android fast	Set up job	2026-10-13T12:51:47.6395973Z Build Date: 2026-10-02T22:28:27Z
+android fast	Set up job	2026-10-13T12:51:47.6396428Z Worker ID: {81811634-64d9-4a5e-b02d-f716ef1596e7}
+android fast	Set up job	2026-10-13T12:51:47.6396845Z Region: westus3
+android fast	Set up job	2026-10-13T12:51:47.6397239Z Cloud: Azure
+android fast	Set up job	2026-10-13T12:51:47.6397569Z ##[endgroup]
+android fast	Set up job	2026-10-13T12:51:47.6398466Z ##[group]Operating System
+android fast	Set up job	2026-10-13T12:51:47.6398878Z Ubuntu
+android fast	Set up job	2026-10-13T12:51:47.6399198Z 24.04.5
+android fast	Set up job	2026-10-13T12:51:47.6399547Z LTS
+android fast	Set up job	2026-10-13T12:51:47.6399873Z ##[endgroup]
+android fast	Set up job	2026-10-13T12:51:47.6400233Z ##[group]Runner Image
+android fast	Set up job	2026-10-13T12:51:47.6400626Z Image: ubuntu-24.04
+android fast	Set up job	2026-10-13T12:51:47.6400972Z Version: 20261004.327.1
+android fast	Set up job	2026-10-13T12:51:47.6401639Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261004.327/images/ubuntu/Ubuntu2404-Readme.md
+android fast	Set up job	2026-10-13T12:51:47.6402681Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261004.327
+android fast	Set up job	2026-10-13T12:51:47.6403653Z ##[endgroup]
+android fast	Set up job	2026-10-13T12:51:47.6404325Z ##[group]GITHUB_TOKEN Permissions
+android fast	Set up job	2026-10-13T12:51:47.6405754Z Contents: read
+android fast	Set up job	2026-10-13T12:51:47.6406132Z Metadata: read
+android fast	Set up job	2026-10-13T12:51:47.6406505Z ##[endgroup]
+android fast	Set up job	2026-10-13T12:51:47.6407902Z Secret source: Actions
+android fast	Set up job	2026-10-13T12:51:47.6408425Z Cache mode: write
+android fast	Set up job	2026-10-13T12:51:47.6409009Z Prepare workflow directory
+android fast	Set up job	2026-10-13T12:51:47.6972987Z Prepare all required actions
+android fast	Set up job	2026-10-13T12:51:47.7005851Z Getting action download info
+android fast	Set up job	2026-10-13T12:51:47.9711963Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+android fast	Set up job	2026-10-13T12:51:48.5024171Z Complete job name: android fast
+android fast	0. Schijf maximaal vrijmaken	﻿2026-10-13T12:51:48.7304091Z ##[group]Run sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/az /usr/share/swift \
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7304878Z ^[[36;1msudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/az /usr/share/swift \^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7305486Z ^[[36;1m            /usr/local/share/boost /usr/local/.ghcup /usr/local/lib/node_modules \^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7305988Z ^[[36;1m            /opt/hostedtoolcache "$AGENT_TOOLSDIRECTORY" || true^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7306386Z ^[[36;1mdocker image prune -af || true^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7306719Z ^[[36;1mdf -h / | tee -a "$HOME/timings.txt"^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.7307294Z ^[[36;1mecho "vCPU: $(nproc) | RAM: $(free -g | awk '/Mem:/{print $2}') GB"^[[0m
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.8175970Z shell: /usr/bin/bash -e {0}
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:51:48.8176612Z ##[endgroup]
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5104030Z Deleted Images:
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5107580Z untagged: ghcr.io/github/gh-aw-firewall/agent:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5108311Z untagged: ghcr.io/github/gh-aw-firewall/agent@sha256:c4ab1d48d533cc7daaa5f2e1193d1a644888242fb8813d49c6de46d129224b76
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5110079Z deleted: sha256:d1d510080c4d6741ea6a805d8f522bb83040186cef3474cc665932a84f6f9a3b
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5110865Z deleted: sha256:a36ad49dd6a643355c7cfaeb88a936f7b5497be9ac5e359d77838b59a06a9484
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5111406Z deleted: sha256:c3b9d9d6c2048d6377865d46d9673644e36d68d1d705423c08f73fd770951ebd
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5111932Z deleted: sha256:f36d7f24b908694df65fd9ca11bc8cea1695cdefde4bc25917d255ab780a6c5a
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5113356Z deleted: sha256:0d3a8a0909078dac23ab090b36fc7c1c2aed4077ffc1a3737b2f349982e3bf18
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5114305Z deleted: sha256:3fbc856d47390f0a1e6452df997b32fab464f1403072452dfc365be442554ec2
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5115661Z deleted: sha256:65f9ebd4727d61b55afd5938f51345aa07b3bc49c8166cde2dcddb9db23c49d8
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5116349Z deleted: sha256:f097e2497bb7a3a93ba583355f9aa0969e9b5ed0c4b7195da497a573d26d0587
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5116795Z deleted: sha256:fae4af64a1d0eaa231b93632655a22515ca4a2df2eb6a152c19244260acbc686
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5118705Z deleted: sha256:947b4c7bd3af9212604e76d1dc3328aa4e3553f05895e6d697ba0c8b73c3858f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5121697Z deleted: sha256:3e409bffaeb687c59d9765b9337e45d9c2586e839da7fa201cfc40181203c527
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5123474Z deleted: sha256:b0abfb0029661d51cd75ec5346b9fe8ddbd4d3eb06ebcdf3f87be435c7a2efcf
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5124559Z deleted: sha256:0927740f6eb9022de196045cbec3e9c9a749e1b9babf5fd2ac481e6a9f138fcd
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5125397Z deleted: sha256:dbf84fb136b1360134c9ca1e70b839610a7cdefb49b2b3f830651b2c278d6243
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5126492Z deleted: sha256:d2c2d920e811c3ab0bab67d153df423777d2fb96bc4b4e863ad34a607ffdd31f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5126945Z deleted: sha256:2fd7520b580ec2804a912be352699931f4d94eed938d13cdd56dd6716acfcc24
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5127400Z deleted: sha256:eaf36430f3a5bd8d9c5909e9eb4574058da9ffce2b8e6c43059dab2429795db0
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5127978Z deleted: sha256:c6ea6aafe9dc03cc6517d39086b07b646355a11bb1c9ab9d563315d3ca81e40f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5130103Z deleted: sha256:cbaf391e670933f026c05c7dedec3faf8f194b6c2d83b0d5694ad68323c8077c
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5132122Z untagged: ghcr.io/dependabot/dependabot-updater-core:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5132534Z untagged: ghcr.io/dependabot/dependabot-updater-core@sha256:a5d0dc2d722bfe644fc186e3da58ca49eea8605b05001031f011afcb0946437d
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5135144Z deleted: sha256:226ed17086e98ddeee3160baabfb3f78a829d92364d4133509d18d2418c9962e
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5135564Z deleted: sha256:a4b37f3c3617c1181c4bd735abc926cc64939bbe4e534a571c57b06573c69ed4
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5137413Z deleted: sha256:f9dda1566037eef47f8cb9dec17ba2b28020635a3e9f569eb918b2b03336ef03
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5138416Z deleted: sha256:55b82155bfb308b2d87edaf948abd91e04a74d1eff676f8e20a5ddb1fe12ea7f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5138716Z deleted: sha256:c2e18b3df92d4cccbdbba1c79600054ea52ceac5a68a9a9bf1e469fd4e7c2dc8
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5139753Z deleted: sha256:7c01245d0daa8ab74e7b8943a126337ab56e1de160aa26c216eebed691ed09a2
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5142206Z deleted: sha256:c37398791ef4025533b74164475c93f61a48638861a0ef60d01ccb33dc4651f9
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5142590Z deleted: sha256:44f38d6ca23ee40568b9a8303d373e563993cf6dbfcbbcd3f4628697cfe4d204
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5144087Z deleted: sha256:e9f7c247b87eb18217443248dbb6f1cfc2a5365eeb8ac65fa27ddf1f5e31b187
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5144517Z deleted: sha256:3fea50b4a75138e7e325f4f3a9cd98b28ddc99bd56d9134af70ec36f78946a98
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5144884Z deleted: sha256:187fb0bdb8d16bedfdd75b896bc2d58a83fc0c2d3c7bb1d6d067d73f3326f903
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5148369Z deleted: sha256:c0126d25af1c42e5bae3fe68ac215775c239673f562341470b2a1ff519e3698b
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5149105Z deleted: sha256:d81fb2a7c6ee3be05fdefaa7fd223be219c1ab172083ec1b994c3ecda33ac0a8
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5149489Z untagged: ghcr.io/github/gh-aw-firewall/squid:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5150355Z untagged: ghcr.io/github/gh-aw-firewall/squid@sha256:90a46d2e6e910ace2c09c2dcf6b56dc374ed513d9da642a4e9fcfcd6e9248a9d
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5150978Z deleted: sha256:22967111f2812e3549c638bafb97d3d5de396bb09e7a6b84173d58b979433abb
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5151269Z deleted: sha256:fe61a40e72d1b55573e81cfd30c9c67bdf654ab7499fffa20aa5f1e99d3ce2b3
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5152692Z deleted: sha256:6622e63bac11514b91f8cd292706df7511ef5e53c05cc34cf4e0547046806349
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5153442Z deleted: sha256:99ce13b82c73a9cb85ecf17be027d4af9c0fc013359175e13b41d62c534388cd
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5154370Z deleted: sha256:233058792c4175e827ae35c05186a1a7a1883cdd7ecd714c18fdbd05e5ee6f5d
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5154916Z untagged: ghcr.io/github/gh-aw-firewall/api-proxy:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5155442Z untagged: ghcr.io/github/gh-aw-firewall/api-proxy@sha256:a5a37489635109334a5e2b5cb2eaba32e8c8f1a89d8dea6009baa962a8904c4a
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5158060Z deleted: sha256:6b335d6fe22a4651a1f265fea4267b837129d7dfe5279c12f46e6d080182ee44
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5158862Z deleted: sha256:57bbc946e2694df38e8baf48cc03cca3d041fee0db6904f0fa2ecd086eb6c665
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5159701Z deleted: sha256:647298b6666399d02b3532375456b2f9e67085b875cbbafd00a19d980c7a64a9
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5161051Z deleted: sha256:7c3450d927f76cf245455ad60b2167ffbf9eecedf71107c8700999b6ed20bbe8
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5163090Z deleted: sha256:571099cedc705b69a7a433c124f6f641f87cf06fa7eab02deaa040c72e09449c
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5166221Z deleted: sha256:59822d62b99bd1d07714c99b45500342321788ea351ae428da40b399797d471f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5166502Z deleted: sha256:74fbe05a3fb74eabc46606fb21bfcdd547ca31892af3577c3388abee99709ee0
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5166790Z deleted: sha256:d4cfb75713e7cfcd135cc71b3c80caadc432d96f2ddd0a2ea8475e117893399b
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5167093Z deleted: sha256:9c745b5bd5a166422f81bb165ae5b0d11faf4a7d12384cd8a33d866e56bf2e5d
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5167459Z deleted: sha256:7bef4835a0bbba6744a4c9b2708597845518261ee6db084bae1f40dcffecca97
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5169218Z deleted: sha256:f49d3aa361fffa2b2e94a63d2b3e6c2673485c02a7b18dbcfb4d164a12cad5cc
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5171207Z deleted: sha256:1fc800ab7c27044f68113e1c7f474000aa447219dbd77479447ab6ad1b86b2d7
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5171931Z deleted: sha256:9c1e16c1243231b6b2b3f73fb3dadefc3d37c0c7c539e99409b3b1f5d41ee184
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5172870Z deleted: sha256:ff9b85e5f9ce82bac83d2f8e3097d4b731eb1c268226154012db9a54f9da2cb2
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5174029Z deleted: sha256:a8aabe94b66ee52be2cc5a04366a49ff3fc40c2945530afcced3919350ddfdf5
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5175742Z deleted: sha256:74d97c428c51a828f9051a7a40a53ff1fc99e54fc30323ce36760701b0b7f711
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5175988Z untagged: ghcr.io/github/github-mcp-server:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5176577Z untagged: ghcr.io/github/github-mcp-server@sha256:7aaeeec9ae4fe9a736d100c1ff0798f3c219b5009e05f5d3945fcacb13cc196b
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5177852Z deleted: sha256:70d716031cd8fbdb03ea648b706ea4ac706b6d33b8f420bac7479c2f441c4261
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5178174Z deleted: sha256:407ddefc6e57c644a3e138b7dbcf96c123214628adf111bc1b8626888bda78b3
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5179882Z deleted: sha256:1e1cabb4a65e50fb84bc4612619b0025e4a1d06d5e38699d1e67e5a8e4f333db
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5180318Z deleted: sha256:86766d6a6e947f4a599c6e23307470f8f75732fc3d143ec1f3260e4406202bee
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5181904Z deleted: sha256:2944471a0bbdfb4985f84f8d287edb5cd982d1060589e707a6cb0cbe82cdfe89
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5184243Z deleted: sha256:5e555e7975e2202f21fb93d460d701a340ade876f3afccb70d702f1dc5ab80db
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5184630Z deleted: sha256:2a080d78a1c5e3615170178f1c6f4c726340da9d5ff2926cb66e2fd97851da9d
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5185416Z deleted: sha256:af4a114029fbf94a3cf75c5cfaa5e947019cd6faae4b800c9306ac9079363def
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5187600Z deleted: sha256:c7b875d3de914680ec64ba55be5865955ec595e7370812894ee68a502e2e8391
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5188012Z deleted: sha256:85d9b4c1ef131ee259952a35027e942f79626303ab143eff7ef00d55201bd06f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5189621Z deleted: sha256:492c6420fd79f4cd4e761bec1e74db6044d45adb5b073a82289af68aa3162e3f
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5190411Z deleted: sha256:14b282df61c0316a80216cec27e753777da93de1d7e062072ef3b517f984fcf1
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5192282Z deleted: sha256:fdaace00fc3f072b9060f703047b30a2c14d8bde7dbbf31a396802c032923732
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5193138Z deleted: sha256:7f73eafc455b691b504d4d3c3f3c7be90e135c1d0ba4988b2cac29579cd6b567
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5193889Z deleted: sha256:32a12b65383df6b6553c8d59f691675ca1980f8cec9c51cce163c3c8f7665a41
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5196693Z deleted: sha256:5217b01660b515ac25ea055a8bd04a20790c7d6bd6085374b59b9081283911af
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5197612Z deleted: sha256:7223ea1323e8c1159ec17f07d35acc27bdd1cc2bc3ed425b44ef21dac9915db0
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5197846Z untagged: ghcr.io/github/gh-aw-mcpg:latest
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5199241Z untagged: ghcr.io/github/gh-aw-mcpg@sha256:69920365d9f0143ed853743c319b2bd4614ca7f9537474ad8eff0c47da84c5a4
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5200887Z deleted: sha256:a589ff70a2020d1b1c5e77be8a997173f4eed8fe2230ae03893c330994c27440
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5201238Z deleted: sha256:f6f64d8c05fe09a3dd0f862e98e1a328d3d04066599e52943909ed085832edc1
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5202522Z deleted: sha256:8c4097e58e0f06073d33d3a39e8382033cf595f6e7f12463c7b41c59636458b3
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5203160Z deleted: sha256:66f209f4bb598ee46b2b245fdd3d616d92551c3b8c7963beb917398f4aeb3c71
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5204414Z deleted: sha256:83d924042ae52d38952f6fc718db75e574675264bd2a59bba16d73375bd7e731
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5205719Z deleted: sha256:1514500ea842bcd611f5b5bda57e12dfd11c0c1f9c27c58b39f5e8a2f548904c
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5206123Z deleted: sha256:09df3d36d3df02c2be99898ac9e632f91e02fb8262d715c6c0e25927ed2e5dd6
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5206509Z deleted: sha256:6ccd0f9257b0a94f3e50f50a9cdc766408da9d5ded13721abdac5fc34f663f49
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5206796Z deleted: sha256:4b35d13cdd93533c08ba296080135dfc555c64a3a0a4284ac739b93e53ee63f6
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5207079Z deleted: sha256:70834cf3bba44803e61e4c9d424992d91e06c34dcbfa92d388fc493c51c26e3a
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5207368Z deleted: sha256:1a597abbdca4511eb22f2e0b00a5d8b6d6129e7669ed56d751b9d1d611d80bfa
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5207654Z deleted: sha256:d5c28ed9f7e287d23038493d8b2dbea75a712162b907ec2fab74295d6bbf77fc
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5207949Z deleted: sha256:34884abbe92863fce933ed7c39c0e045631af0ed86d5cc0dfbdf9fdca426ce3c
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5208125Z 
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5208198Z Total reclaimed space: 1.852GB
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5208427Z Filesystem      Size  Used Avail Use% Mounted on
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5208655Z /dev/root       145G   28G  117G  19% /
+android fast	0. Schijf maximaal vrijmaken	2026-10-13T12:54:37.5271203Z vCPU: 4 | RAM: 15 GB
+android fast	1. Basis + deze repo + depot_tools	﻿2026-10-13T12:54:37.5527500Z ##[group]Run set -e
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5527702Z ^[[36;1mset -e^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5527886Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5529638Z ^[[36;1mstage "start"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5529777Z ^[[36;1msudo apt-get update -qq^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5531540Z ^[[36;1msudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git curl lsb-release file python3 python3-pip^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5532096Z ^[[36;1mgit clone -q --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git "$HOME/depot_tools"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5532502Z ^[[36;1mgit clone -q --recurse-submodules https://github.com/roanh47/Roans-Browser.git "$HOME/roansbrowser"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5532846Z ^[[36;1mcp -v "$HOME/roansbrowser/depot_tools/autoninja" "$HOME/depot_tools/autoninja"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5534778Z ^[[36;1mVER=$(grep -oP 'THOR_VER="\K[^"]+' "$HOME/roansbrowser/version.sh")^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5536313Z ^[[36;1mecho "VER=$VER" >> "$GITHUB_ENV"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5536533Z ^[[36;1mstage "depot_tools + repo klaar (Chromium tag $VER)"^[[0m
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5675331Z shell: /usr/bin/bash -e {0}
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5675499Z ##[endgroup]
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:37.5855727Z 2026-10-13T12:54:37Z start
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:57.8135693Z '/home/runner/roansbrowser/depot_tools/autoninja' -> '/home/runner/depot_tools/autoninja'
+android fast	1. Basis + deze repo + depot_tools	2026-10-13T12:54:57.8167311Z 2026-10-13T12:54:57Z depot_tools + repo klaar (Chromium tag 138.0.7204.306)
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	﻿2026-10-13T12:54:57.8206159Z ##[group]Run set -e
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8206328Z ^[[36;1mset -e^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8206464Z ^[[36;1mexport PATH="$HOME/depot_tools:$PATH"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8206629Z ^[[36;1mcd "$HOME"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8206808Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8207045Z ^[[36;1mstage "fetch chromium start (--no-history)"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8207228Z ^[[36;1mfetch --nohooks --no-history chromium^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8207392Z ^[[36;1mstage "fetch chromium klaar"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8207586Z ^[[36;1mdu -sh "$HOME/chromium/src/.git" | tee -a "$HOME/timings.txt"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8207801Z ^[[36;1mdf -h / | tail -1 | tee -a "$HOME/timings.txt"^[[0m
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8259863Z shell: /usr/bin/bash -e {0}
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8260027Z env:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8260141Z   VER: 138.0.7204.306
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8260287Z ##[endgroup]
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:54:57.8335366Z 2026-10-13T12:54:57Z fetch chromium start (--no-history)
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:55:09.1190741Z WARNING: Your metrics.cfg file was invalid or nonexistent. A new one will be created.
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:10.6421318Z [0:01:00] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:20.6424456Z [0:01:00]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:20.6424721Z [0:01:10] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:20.6425484Z [0:01:10]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:30.6427628Z [0:01:20] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:30.6427933Z [0:01:20]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:40.6431805Z [0:01:30] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:40.6432162Z [0:01:30]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:50.6431925Z [0:01:40] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:56:50.6432379Z [0:01:40]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:00.6434844Z [0:01:50] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:00.6435147Z [0:01:50]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:10.6436870Z [0:02:00] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:20.6440691Z [0:02:00]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:20.6440969Z [0:02:10] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:20.6441223Z [0:02:10]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:30.6442753Z [0:02:20] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:30.6443119Z [0:02:20]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:40.6443126Z [0:02:30] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:40.6443466Z [0:02:30]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:50.6445382Z [0:02:40] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:57:50.6445627Z [0:02:40]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:00.6448083Z [0:02:50] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:00.6448412Z [0:02:50]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:10.6451896Z [0:03:00] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:10.6452173Z [0:03:00]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:20.6454610Z [0:03:10] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:20.6454923Z [0:03:10]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:30.6455738Z [0:03:20] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:30.6456005Z [0:03:20]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:40.6456452Z [0:03:30] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:40.6457878Z [0:03:30]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:50.6458691Z [0:03:40] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:58:50.6459042Z [0:03:40]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:00.6462602Z [0:03:50] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:00.6462908Z [0:03:50]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:10.6463004Z [0:04:00] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:10.6463361Z [0:04:00]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:13.7126361Z [0:04:03] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:13.7126697Z [0:04:03]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:13.7663422Z [0:04:03] Still working on:
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T12:59:13.7663833Z [0:04:03]   src
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7541482Z Running: gclient root
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7541891Z Running: gclient config --spec 'solutions = [
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7542140Z   {
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7542288Z     "name": "src",
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7542573Z     "url": "https://chromium.googlesource.com/chromium/src.git",
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7542860Z     "custom_deps": {},
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7543048Z     "custom_vars": {},
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7543221Z   },
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7543703Z ]
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7543843Z '
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7544026Z Running: gclient sync --nohooks --no-history
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.7544305Z Running: git config diff.ignoreSubmodules dirty
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.8787920Z 2026-10-13T13:02:27Z fetch chromium klaar
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.8873370Z /dev/root       145G   58G   88G  40% /
+android fast	2. Chromium fetchen (shallow, ~15-25 min)	2026-10-13T13:02:27.8877087Z du: cannot access '/home/runner/chromium/src/.git': No such file or directory
+android fast	3. Build-deps (Android) installeren	﻿2026-10-13T13:02:28.0037258Z ##[group]Run set +e
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0072461Z ^[[36;1mset +e^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0072585Z ^[[36;1mcd "$HOME/chromium/src"^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0072784Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0073020Z ^[[36;1mstage "install-build-deps start"^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0073194Z ^[[36;1mif [ -f build/install-build-deps.sh ]; then^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0073427Z ^[[36;1m  sudo ./build/install-build-deps.sh --android --no-prompt --unsupported^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0073700Z ^[[36;1melse^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0073887Z ^[[36;1m  sudo python3 build/install-build-deps.py --android --no-prompt --unsupported^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0074105Z ^[[36;1mfi^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.0074233Z ^[[36;1mstage "install-build-deps klaar (exit $?)"^[[0m
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2240653Z shell: /usr/bin/bash -e {0}
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2240846Z env:
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2240961Z   VER: 138.0.7204.306
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2241093Z ##[endgroup]
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2347414Z /home/runner/work/_temp/e149f280-14e4-4caa-a70c-943a76cf8b58.sh: line 2: cd: /home/runner/chromium/src: No such file or directory
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.2356766Z 2026-10-13T13:02:28Z install-build-deps start
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.4122791Z python3: can't open file '/home/runner/work/Roans-Browser/Roans-Browser/build/install-build-deps.py': [Errno 2] No such file or directory
+android fast	3. Build-deps (Android) installeren	2026-10-13T13:02:28.4171728Z 2026-10-13T13:02:28Z install-build-deps klaar (exit 2)
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	﻿2026-10-13T13:02:28.5321623Z ##[group]Run set -e
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5321848Z ^[[36;1mset -e^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5321967Z ^[[36;1mCR="$HOME/chromium/src"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5322170Z ^[[36;1mstage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5322369Z ^[[36;1mcd "$CR"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5322483Z ^[[36;1mstage "tag $VER ophalen"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5322663Z ^[[36;1mgit fetch --depth=1 origin "refs/tags/$VER:refs/tags/$VER"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5322849Z ^[[36;1mgit checkout -f "tags/$VER"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5323025Z ^[[36;1mgit log -1 --format='%h %cd %s' | tee -a "$HOME/timings.txt"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5323242Z ^[[36;1m# bestanden die version.sh ook kopieert^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5323420Z ^[[36;1mcd "$HOME/roansbrowser"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5323684Z ^[[36;1mcp -v src/build/vs_toolchain.py "$CR/build/"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5323871Z ^[[36;1mcp -v libjxl/src/DEPS "$CR/"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324022Z ^[[36;1mcp -v libjxl/src/.gitmodules "$CR/"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324241Z ^[[36;1mcp -v libjxl/src/third_party/.gitignore "$CR/third_party/"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324414Z ^[[36;1mcd "$CR"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324539Z ^[[36;1mexport PATH="$HOME/depot_tools:$PATH"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324688Z ^[[36;1mSHALLOW=""^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5324886Z ^[[36;1mif gclient sync --help 2>&1 | grep -q -- '--no-history'; then SHALLOW="--no-history"; fi^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5325128Z ^[[36;1mstage "gclient sync start (shallow=$SHALLOW)"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5325356Z ^[[36;1mgclient sync --force --reset --nohooks --delete_unversioned_trees $SHALLOW^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5325570Z ^[[36;1mstage "gclient sync klaar"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5325708Z ^[[36;1mstage "runhooks + sysroot"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5325845Z ^[[36;1mgclient runhooks^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5326017Z ^[[36;1mbuild/linux/sysroot_scripts/install-sysroot.py --arch=amd64^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5326210Z ^[[36;1mstage "version-stappen klaar"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5326405Z ^[[36;1mdu -sh "$CR/.git" "$HOME/.cipd" 2>/dev/null | tee -a "$HOME/timings.txt"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5326621Z ^[[36;1mdf -h / | tail -1 | tee -a "$HOME/timings.txt"^[[0m
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5375310Z shell: /usr/bin/bash -e {0}
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5375440Z env:
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5375546Z   VER: 138.0.7204.306
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5375662Z ##[endgroup]
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.5929987Z /home/runner/work/_temp/f2b0eac5-1b72-4f09-ad28-7295edf84398.sh: line 4: cd: /home/runner/chromium/src: No such file or directory
+android fast	4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)	2026-10-13T13:02:28.6206554Z ##[error]Process completed with exit code 1.
+android fast	8. Metingen + eventuele APK uploaden	﻿2026-10-13T13:02:28.7160928Z ##[group]Run actions/upload-artifact@v4
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7161140Z with:
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7161266Z   name: metingen-fast
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7161408Z   if-no-files-found: warn
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7161531Z   retention-days: 30
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7161815Z   path: /home/runner/timings.txt
+android fast	8. Metingen + eventuele APK uploaden	/home/runner/ninja.log
+android fast	8. Metingen + eventuele APK uploaden	/home/runner/args-fast.gn
+android fast	8. Metingen + eventuele APK uploaden	/home/runner/chromium/src/out/roansbrowser/apks/*.apk
+android fast	8. Metingen + eventuele APK uploaden	
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162118Z   compression-level: 6
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162235Z   overwrite: false
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162352Z   include-hidden-files: false
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162480Z env:
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162580Z   VER: 138.0.7204.306
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:28.7162689Z ##[endgroup]
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7538270Z (node:25354) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7538923Z (Use `node --trace-deprecation ...` to show where the warning was created)
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7689851Z Multiple search paths detected. Calculating the least common ancestor of all paths
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7691031Z The least common ancestor is /home/runner. This will be the root directory of the artifact
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7691737Z With the provided path, there will be 1 file uploaded
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7692195Z Artifact name is valid!
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:31.7692332Z Root directory input is valid!
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.4142591Z Beginning upload of artifact content to blob storage
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.4296244Z (node:25354) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.6880882Z Uploaded bytes 368
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.7483897Z Finished uploading artifact content to blob storage!
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.7484477Z SHA256 digest of uploaded artifact zip is 76a49192cdd119149b02b0158954aff7698411d3a4905cfc793cee574aeee328
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.7485099Z Finalizing artifact upload
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.9990187Z Artifact metingen-fast.zip successfully finalized. Artifact ID 11815701380
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.9990757Z Artifact metingen-fast has been successfully uploaded! Final size is 368 bytes. Artifact ID is 11815701380
+android fast	8. Metingen + eventuele APK uploaden	2026-10-13T13:02:32.9994567Z Artifact download URL: https://github.com/roanh47/Roans-Browser/actions/runs/38400432719/artifacts/11815701380
+android fast	Complete job	﻿2026-10-13T13:02:33.0260719Z Cleaning up orphan processes
+android fast	Complete job	2026-10-13T13:02:33.6117862Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

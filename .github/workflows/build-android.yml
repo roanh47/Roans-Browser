@@ -1,16 +1,18 @@
 name: build-android
 
 # Android-build via GitHub Actions, langs het eigen pad van deze repo
-# (docs/BUILDING.md + version.sh + setup.sh --android + build_android.sh).
+# (version.sh-stappen + setup.sh --android + arm/android/arm64_args.gn + autoninja).
 #
-# Gemeten op 2026-10-13 (run 38388352300): `fetch --nohooks chromium` + `gclient sync`
-# met volledige historie vult de runner (113 GB vrij) binnen ~95 min -> "no space left on device".
-# Daarom hier: --no-history/shallow, cipd-cache opruimen na de sync en een schijf-guard
-# voordat ninja begint. Verder is het pad identiek aan de repo-scripts.
+# Gemeten op de runner (2026-10-13), per poging:
+#   run 1: volledige-historie fetch + gclient sync -> schijf vol (113 GB) na 95 min.
+#   run 2: --no-history werkt (fetch 8-13 min, 30 GB) maar `fetch` maakt zelf geen
+#          map aan: het checkt uit in de huidige map. In $HOME belandde de boom dus
+#          op $HOME/src i.p.v. $HOME/chromium/src -> alle repo-scripts faalden.
+# Deze versie: mkdir $HOME/chromium + fetch vanaf daar, install-build-deps via de
+# py-shim, cipd + git-metadata opruimen voor de build, schijf-guard.
 #
-# Blijft staan: een gehoste runner heeft 4 vCPU en stopt hard na 6 u, een koude
-# Chromium-Android-build is 10-20 u. Deze run MEET per fase (sync, gn gen, % ninja),
-# hij belooft geen APK.
+# Blijft staan: 4 vCPU en een harde 6-uurslimiet per job, een koude
+# Chromium-Android-build is 10-20 u. Deze run MEET per fase; hij belooft geen APK.
 
 on:
   workflow_dispatch:
@@ -61,30 +63,35 @@ jobs:
           echo "VER=$VER" >> "$GITHUB_ENV"
           stage "depot_tools + repo klaar (Chromium tag $VER)"
 
-      - name: 2. Chromium fetchen (shallow, ~15-25 min)
+      - name: 2. Chromium fetchen (shallow, ~10-20 min)
         run: |
           set -e
           export PATH="$HOME/depot_tools:$PATH"
-          cd "$HOME"
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          mkdir -p "$HOME/chromium"
+          cd "$HOME/chromium"
           stage "fetch chromium start (--no-history)"
           fetch --nohooks --no-history chromium
           stage "fetch chromium klaar"
-          du -sh "$HOME/chromium/src/.git" | tee -a "$HOME/timings.txt"
+          test -d "$HOME/chromium/src" || { echo "::error::geen checkout op $HOME/chromium/src"; exit 1; }
+          ls -d "$HOME/chromium/.gclient"
+          du -sh "$HOME/chromium/src" | tee -a "$HOME/timings.txt"
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
 
       - name: 3. Build-deps (Android) installeren
         run: |
-          set +e
-          cd "$HOME/chromium/src"
+          cd "$HOME/chromium/src" || exit 0
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
           stage "install-build-deps start"
-          if [ -f build/install-build-deps.sh ]; then
-            sudo ./build/install-build-deps.sh --android --no-prompt --unsupported
-          else
-            sudo python3 build/install-build-deps.py --android --no-prompt --unsupported
+          set +e
+          sudo ./build/install-build-deps.sh --android --no-prompt 2>&1 | tail -30
+          RC=$?
+          if [ "$RC" != "0" ]; then
+            stage "eerste poging faalde ($RC), opnieuw met --unsupported"
+            sudo ./build/install-build-deps.sh --android --no-prompt --unsupported 2>&1 | tail -30
+            RC=$?
           fi
-          stage "install-build-deps klaar (exit $?)"
+          stage "install-build-deps klaar (exit $RC)"
 
       - name: 4. Chromium op de repo-tag + gclient sync (stappen uit version.sh)
         run: |
@@ -95,8 +102,7 @@ jobs:
           stage "tag $VER ophalen"
           git fetch --depth=1 origin "refs/tags/$VER:refs/tags/$VER"
           git checkout -f "tags/$VER"
-          git log -1 --format='%h %cd %s' | tee -a "$HOME/timings.txt"
-          # bestanden die version.sh ook kopieert
+          stage "HEAD: $(git log -1 --format='%h %cd %s')"
           cd "$HOME/roansbrowser"
           cp -v src/build/vs_toolchain.py "$CR/build/"
           cp -v libjxl/src/DEPS "$CR/"
@@ -106,14 +112,14 @@ jobs:
           export PATH="$HOME/depot_tools:$PATH"
           SHALLOW=""
           if gclient sync --help 2>&1 | grep -q -- '--no-history'; then SHALLOW="--no-history"; fi
-          stage "gclient sync start (shallow=$SHALLOW)"
+          stage "gclient sync start (shallow='$SHALLOW')"
           gclient sync --force --reset --nohooks --delete_unversioned_trees $SHALLOW
           stage "gclient sync klaar"
-          stage "runhooks + sysroot"
           gclient runhooks
           build/linux/sysroot_scripts/install-sysroot.py --arch=amd64
           stage "version-stappen klaar"
-          du -sh "$CR/.git" "$HOME/.cipd" 2>/dev/null | tee -a "$HOME/timings.txt"
+          ls -d third_party/android_sdk third_party/android_ndk 2>/dev/null || true
+          du -sh "$CR" "$HOME/.cipd" 2>/dev/null || true
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
 
       - name: 5. setup.sh --android
@@ -133,13 +139,14 @@ jobs:
           OUT="$CR/out/roansbrowser"
           PROF="${{ matrix.profile }}"
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
-          # cipd-cache is na de sync niet meer nodig (de pakketten staan in de boom)
-          rm -rf "$HOME/.cipd/pkgs" "$HOME/.cache"/* 2>/dev/null || true
+          rm -rf "$HOME/.cipd" 2>/dev/null || true
           FREE=$(df -Pk / | awk 'NR==2{print int($4/1024/1024)}')
           stage "vrij voor de build: ${FREE} GB"
           if [ "$FREE" -lt 60 ]; then
-            stage "weinig ruimte: src/.git opruimen (build heeft geen historie nodig)"
-            rm -rf "$CR/.git"
+            stage "weinig ruimte: git-metadata opruimen (de build heeft geen historie nodig)"
+            find "$CR" -maxdepth 4 -name .git -prune -exec rm -rf {} + 2>/dev/null || true
+            FREE=$(df -Pk / | awk 'NR==2{print int($4/1024/1024)}')
+            stage "vrij na opruimen: ${FREE} GB"
           fi
           mkdir -p "$OUT"
           cp "$HOME/roansbrowser/arm/android/arm64_args.gn" "$OUT/args.gn"
@@ -148,8 +155,8 @@ jobs:
           if [ -n "$PGO" ]; then
             sed -i "s|^pgo_data_path = .*|pgo_data_path = \"$PGO\"|" "$OUT/args.gn"
           else
-            sed -i "s|^chrome_pgo_phase = .*|chrome_pgo_phase = 0|" "$OUT/args.gn"
             sed -i "/^pgo_data_path = /d" "$OUT/args.gn"
+            sed -i "s|^chrome_pgo_phase = .*|chrome_pgo_phase = 0|" "$OUT/args.gn"
             echo "::warning::geen android64 PGO-profiel gevonden, chrome_pgo_phase=0"
           fi
           if [ "$PROF" = "fast" ]; then
@@ -181,7 +188,7 @@ jobs:
           echo "$(date -u +%FT%TZ) ninja start (${{ inputs.target }}, limiet ${MINS}m)" | tee -a "$HOME/timings.txt"
           ( while true; do
               sleep 900
-              echo "--- $(date -u +%FT%TZ) hartslag: $(du -sh out/roansbrowser 2>/dev/null | cut -f1) | vrij: $(df -h / | tail -1 | awk '{print $4}')"
+              echo "--- $(date -u +%FT%TZ) hartslag: out/ = $(du -sh out/roansbrowser 2>/dev/null | cut -f1) | vrij: $(df -h / | tail -1 | awk '{print $4}')"
               tail -c 400 "$HOME/ninja.log" 2>/dev/null | tr '\r' '\n' | tail -2
             done ) &
           HEART=$!

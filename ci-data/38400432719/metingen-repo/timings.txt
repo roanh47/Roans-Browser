@@ -1,0 +1,9 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       145G   28G  117G  19% /
+2026-10-13T12:54:05Z start
+2026-10-13T12:54:22Z depot_tools + repo klaar (Chromium tag 138.0.7204.306)
+2026-10-13T12:54:22Z fetch chromium start (--no-history)
+2026-10-13T13:07:14Z fetch chromium klaar
+/dev/root       145G   58G   88G  40% /
+2026-10-13T13:07:14Z install-build-deps start
+2026-10-13T13:07:14Z install-build-deps klaar (exit 2)
