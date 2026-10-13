@@ -4,27 +4,21 @@ name: build-android
 # (version.sh-stappen + setup.sh --android + arm/android/arm64_args.gn + autoninja).
 #
 # Gemeten op de runner (2026-10-13), per poging:
-#   run 1: volledige-historie fetch + gclient sync -> schijf vol (113 GB) na 95 min.
-#   run 2: --no-history werkt (fetch 8-13 min, 30 GB) maar `fetch` maakt zelf geen
-#          map aan: het checkt uit in de huidige map. In $HOME belandde de boom dus
-#          op $HOME/src i.p.v. $HOME/chromium/src -> alle repo-scripts faalden.
-# Deze versie: mkdir $HOME/chromium + fetch vanaf daar, install-build-deps via de
-# py-shim, cipd + git-metadata opruimen voor de build, schijf-guard.
+#   run 1: volledige-historie fetch + sync -> schijf vol (113 GB) na 95 min.
+#   run 2: `fetch` maakt zelf geen map: boom landde in ~/src i.p.v. ~/chromium/src.
+#   run 3: fetch/deps/tag/sync/setup allemaal groen (pre-build ~45 min, 76 GB gebruikt,
+#          69 GB vrij) -> setup.sh exit 2 op `tput sgr0` met lege $TERM.
+#   run 4: gn gen faalt: `checkout_android` ontbreekt -> .gclient mist target_os=["android"].
+#          Tweede job sneuvelde op HTTP 429 van chromium.googlesource.com (twee syncs
+#          tegelijk vanaf hetzelfde IP).
+# Deze versie: fetch met --target_os=android + vangnet in .gclient, TERM=xterm,
+# jobs na elkaar i.p.v. naast elkaar (max-parallel: 1), retry op de netwerkstappen.
 #
 # Blijft staan: 4 vCPU en een harde 6-uurslimiet per job, een koude
 # Chromium-Android-build is 10-20 u. Deze run MEET per fase; hij belooft geen APK.
 
 on:
-  workflow_dispatch:
-    inputs:
-      target:
-        description: "ninja target"
-        default: "chrome_public_apk"
-        type: string
-      build_minutes:
-        description: "max minuten voor de ninja-stap"
-        default: "210"
-        type: string
+  workflow_dispatch: {}
 
 permissions:
   contents: read
@@ -38,8 +32,15 @@ jobs:
       TERM: xterm   # setup.sh eindigt met `tput sgr0`; zonder TERM geeft dat exit 2
     strategy:
       fail-fast: false
+      max-parallel: 1   # nooit twee syncs tegelijk: googlesource geeft anders 429
       matrix:
-        profile: [repo, fast]
+        include:
+          # "fast" eerst: zonder LTO/official/PGO is dit de enige variant die op
+          # 4 vCPU binnen de limiet kán landen.
+          - profile: fast
+            minutes: "240"
+          - profile: repo
+            minutes: "150"
 
     steps:
       - name: 0. Schijf maximaal vrijmaken
@@ -65,17 +66,31 @@ jobs:
           echo "VER=$VER" >> "$GITHUB_ENV"
           stage "depot_tools + repo klaar (Chromium tag $VER)"
 
-      - name: 2. Chromium fetchen (shallow, ~10-20 min)
+      - name: 2. Chromium fetchen voor Android (shallow, ~10 min)
         run: |
           set -e
           export PATH="$HOME/depot_tools:$PATH"
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
           mkdir -p "$HOME/chromium"
           cd "$HOME/chromium"
-          stage "fetch chromium start (--no-history)"
-          fetch --nohooks --no-history chromium
+          stage "fetch chromium start (--no-history, --target_os=android)"
+          fetch --nohooks --no-history chromium --target_os=android
           stage "fetch chromium klaar"
           test -d "$HOME/chromium/src" || { echo "::error::geen checkout op $HOME/chromium/src"; exit 1; }
+          # Vangnet: zonder target_os=["android"] in .gclient faalt `gn gen` op
+          # build/config/android/config.gni (assert checkout_android).
+          python3 - <<'PY'
+          import pathlib
+          p = pathlib.Path.home() / "chromium/.gclient"
+          t = p.read_text()
+          if "target_os" not in t:
+              t += '\ntarget_os = ["android"]\n'
+              p.write_text(t)
+              print("target_os toegevoegd aan .gclient")
+          else:
+              print("target_os stond al in .gclient")
+          print("----- .gclient -----"); print(t)
+          PY
           ls -d "$HOME/chromium/.gclient"
           du -sh "$HOME/chromium/src" | tee -a "$HOME/timings.txt"
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
@@ -100,9 +115,18 @@ jobs:
           set -e
           CR="$HOME/chromium/src"
           stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          retry() {  # $1 = aantal pogingen, daarna het commando
+            n="$1"; shift
+            for i in $(seq 1 "$n"); do
+              "$@" && return 0
+              stage "poging $i/$n faalde, 60s wachten"
+              sleep 60
+            done
+            return 1
+          }
           cd "$CR"
           stage "tag $VER ophalen"
-          git fetch --depth=1 origin "refs/tags/$VER:refs/tags/$VER"
+          retry 3 git fetch --depth=1 origin "refs/tags/$VER:refs/tags/$VER"
           git checkout -f "tags/$VER"
           stage "HEAD: $(git log -1 --format='%h %cd %s')"
           cd "$HOME/roansbrowser"
@@ -114,13 +138,14 @@ jobs:
           export PATH="$HOME/depot_tools:$PATH"
           SHALLOW=""
           if gclient sync --help 2>&1 | grep -q -- '--no-history'; then SHALLOW="--no-history"; fi
-          stage "gclient sync start (shallow='$SHALLOW')"
-          gclient sync --force --reset --nohooks --delete_unversioned_trees $SHALLOW
+          stage "gclient sync start (shallow='$SHALLOW', target_os=android)"
+          retry 3 gclient sync --force --reset --nohooks --delete_unversioned_trees $SHALLOW
           stage "gclient sync klaar"
-          gclient runhooks
-          build/linux/sysroot_scripts/install-sysroot.py --arch=amd64
+          retry 2 gclient runhooks
+          retry 2 build/linux/sysroot_scripts/install-sysroot.py --arch=amd64
           stage "version-stappen klaar"
-          ls -d third_party/android_sdk third_party/android_ndk 2>/dev/null || true
+          grep -n "checkout_android" build/config/gclient_args.gni || true
+          ls -d third_party/android_sdk third_party/android_ndk 2>/dev/null || echo "::warning::geen android_sdk/ndk in third_party"
           du -sh "$CR" "$HOME/.cipd" 2>/dev/null || true
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
 
@@ -138,6 +163,7 @@ jobs:
           stage "setup.sh --android start"
           ./setup.sh --android
           stage "setup.sh klaar"
+          ls -lh "$HOME/chromium/src"/chrome/build/pgo_profiles/chrome-android64-*.profdata 2>/dev/null || echo "geen PGO-profiel"
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
 
       - name: 6. Ruimte vrijmaken voor de build + args.gn + gn gen
@@ -181,7 +207,7 @@ jobs:
           cd "$CR"
           export PATH="$HOME/depot_tools:$PATH"
           stage "gn gen start"
-          gn gen out/roansbrowser
+          gn gen out/roansbrowser 2>&1 | tee "$HOME/gn-$PROF.log"
           stage "gn gen klaar"
           df -h / | tail -1 | tee -a "$HOME/timings.txt"
 
@@ -192,8 +218,8 @@ jobs:
           export PATH="$HOME/depot_tools:$PATH"
           export NINJA_SUMMARIZE_BUILD=1
           export NINJA_STATUS="[%r running, %f/%t @ %o/s | %e sec ] "
-          MINS="${{ inputs.build_minutes }}"
-          echo "$(date -u +%FT%TZ) ninja start (${{ inputs.target }}, limiet ${MINS}m)" | tee -a "$HOME/timings.txt"
+          MINS="${{ matrix.minutes }}"
+          echo "$(date -u +%FT%TZ) ninja start (chrome_public_apk, limiet ${MINS}m)" | tee -a "$HOME/timings.txt"
           ( while true; do
               sleep 900
               echo "--- $(date -u +%FT%TZ) hartslag: out/ = $(du -sh out/roansbrowser 2>/dev/null | cut -f1) | vrij: $(df -h / | tail -1 | awk '{print $4}')"
@@ -201,7 +227,7 @@ jobs:
             done ) &
           HEART=$!
           set -o pipefail
-          timeout -s INT "${MINS}m" autoninja -C out/roansbrowser "${{ inputs.target }}" -j"$(nproc)" 2>&1 | tee "$HOME/ninja.log"
+          timeout -s INT "${MINS}m" autoninja -C out/roansbrowser chrome_public_apk -j"$(nproc)" 2>&1 | tee "$HOME/ninja.log"
           RC=$?
           kill $HEART 2>/dev/null || true
           echo "$(date -u +%FT%TZ) ninja gestopt, exit $RC (124 = limiet gehaald)" | tee -a "$HOME/timings.txt"
@@ -219,5 +245,6 @@ jobs:
           path: |
             /home/runner/timings.txt
             /home/runner/ninja.log
+            /home/runner/gn-${{ matrix.profile }}.log
             /home/runner/args-${{ matrix.profile }}.gn
             /home/runner/chromium/src/out/roansbrowser/apks/*.apk

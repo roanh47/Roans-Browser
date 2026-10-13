@@ -1,0 +1,21 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       145G   27G  118G  19% /
+2026-10-13T14:04:48Z start
+2026-10-13T14:05:08Z depot_tools + repo klaar (Chromium tag 138.0.7204.306)
+2026-10-13T14:05:08Z fetch chromium start (--no-history)
+2026-10-13T14:12:49Z fetch chromium klaar
+28G	/home/runner/chromium/src
+/dev/root       145G   57G   88G  40% /
+2026-10-13T14:12:57Z install-build-deps start
+2026-10-13T14:14:26Z install-build-deps klaar (exit 0)
+2026-10-13T14:14:26Z tag 138.0.7204.306 ophalen
+2026-10-13T14:17:03Z HEAD: 6f7f3f6432 Thu Mar 5 07:31:10 2026 -0800 Roll commits from side projects in M138
+2026-10-13T14:17:04Z gclient sync start (shallow='--no-history')
+2026-10-13T14:32:50Z gclient sync klaar
+2026-10-13T14:35:01Z version-stappen klaar
+/dev/root       145G   75G   70G  52% /
+2026-10-13T14:35:14Z setup.sh --android start
+2026-10-13T14:35:17Z setup.sh klaar
+/dev/root       145G   75G   70G  52% /
+2026-10-13T14:35:17Z vrij voor de build: 69 GB
+2026-10-13T14:35:17Z gn gen start
