@@ -1,0 +1,174 @@
+name: build-android
+
+# Volgt het eigen, gedocumenteerde pad van deze repo (docs/BUILDING.md + build_android.sh):
+#   fetch chromium -> version.sh -> setup.sh --android -> args.gn -> autoninja
+# Matrix: twee profielen naast elkaar ("repo" = arm/android/arm64_args.gn zoals het is,
+# "fast" = zelfde args maar zonder LTO/official, om te meten wat de snelste variant kost).
+#
+# WAARSCHUWING (gemeten): een gehoste runner stopt hard na 6 u en heeft 4 vCPU.
+# Een koude Chromium-Android-build is 10-20 u. Deze run is bedoeld om per fase te METEN
+# (sync, gn gen, hoeveel procent ninja), niet om een APK te beloven.
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "ninja target"
+        default: "chrome_public_apk"
+        type: string
+      build_minutes:
+        description: "max minuten voor de ninja-stap (job stopt 30 min later)"
+        default: "210"
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  apk:
+    name: android ${{ matrix.profile }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        profile: [repo, fast]
+
+    steps:
+      - name: 0. Schijf vrijmaken
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL \
+                      /usr/local/share/boost /usr/local/.ghcup /opt/az /usr/share/swift || true
+          docker image prune -af || true
+          df -h / | tee -a "$HOME/timings.txt"
+          echo "vCPU: $(nproc)"
+
+      - name: 1. Basis + depot_tools
+        run: |
+          set -x
+          stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          stage "start"
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq git curl lsb-release file python3 python3-pip \
+              openjdk-17-jdk-headless openjdk-21-jdk-headless
+          git clone --depth 1 https://chromium.googlesource.com/chromium/tools/depot_tools.git "$HOME/depot_tools"
+          stage "depot_tools klaar"
+
+      - name: 2. Chromium fetchen (kan 30-60 min duren)
+        run: |
+          export PATH="$HOME/depot_tools:$PATH"
+          cd "$HOME"
+          stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          stage "fetch chromium start"
+          fetch --nohooks chromium
+          stage "fetch chromium klaar"
+          df -h / | tail -1 | tee -a "$HOME/timings.txt"
+
+      - name: 3. Build-deps (Android) installeren
+        run: |
+          set +e
+          cd "$HOME/chromium/src"
+          stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          stage "install-build-deps start"
+          if [ -f build/install-build-deps.sh ]; then
+            sudo ./build/install-build-deps.sh --android --no-prompt --unsupported
+          else
+            sudo python3 build/install-build-deps.py --android --no-prompt --unsupported
+          fi
+          stage "install-build-deps klaar (exit $?)"
+          df -h / | tail -1 | tee -a "$HOME/timings.txt"
+
+      - name: 4. Deze repo clonen + version.sh (checkout tag + gclient sync)
+        run: |
+          set -e
+          stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          git clone --recurse-submodules https://github.com/${{ github.repository }}.git "$HOME/roansbrowser"
+          cp -v "$HOME/roansbrowser/depot_tools/autoninja" "$HOME/depot_tools/autoninja"
+          cd "$HOME/roansbrowser"
+          export PATH="$HOME/depot_tools:$PATH"
+          stage "version.sh start (checkout + gclient sync + runhooks + sysroots + PGO)"
+          ./version.sh || { stage "version.sh FAALDE"; df -h /; exit 1; }
+          stage "version.sh klaar"
+          df -h / | tail -1 | tee -a "$HOME/timings.txt"
+
+      - name: 5. setup.sh --android
+        run: |
+          set -e
+          stage() { echo "$(date -u +%FT%TZ) $*" | tee -a "$HOME/timings.txt"; }
+          cd "$HOME/roansbrowser"
+          stage "setup.sh --android start"
+          ./setup.sh --android
+          stage "setup.sh klaar"
+
+      - name: 6. args.gn samenstellen (pgo-pad naar deze runner)
+        run: |
+          set -e
+          CR="$HOME/chromium/src"
+          OUT="$CR/out/roansbrowser"
+          PROF="${{ matrix.profile }}"
+          mkdir -p "$OUT"
+          cp "$HOME/roansbrowser/arm/android/arm64_args.gn" "$OUT/args.gn"
+          sed -i "s|/home/alex/chromium/src|$CR|g" "$OUT/args.gn"
+          PGO=$(ls -t "$CR"/chrome/build/pgo_profiles/chrome-android64-*.profdata 2>/dev/null | head -1)
+          if [ -n "$PGO" ]; then
+            sed -i "s|^pgo_data_path = .*|pgo_data_path = \"$PGO\"|" "$OUT/args.gn"
+          else
+            sed -i "s|^chrome_pgo_phase = .*|chrome_pgo_phase = 0|" "$OUT/args.gn"
+            sed -i "/^pgo_data_path = /d" "$OUT/args.gn"
+            echo "::warning::geen android64 PGO-profiel gevonden, chrome_pgo_phase=0"
+          fi
+          if [ "$PROF" = "fast" ]; then
+            printf '%s\n' \
+              '# --- profiel "fast": geen LTO/official, alleen om de bouwtijd te meten ---' \
+              'is_official_build = false' \
+              'use_thin_lto = false' \
+              'chrome_pgo_phase = 0' \
+              'v8_enable_maglev = false' \
+              'is_high_end_android = false' \
+              'enable_precompiled_headers = true' >> "$OUT/args.gn"
+          fi
+          echo "===== args.gn ($PROF) ====="
+          grep -v -E '^[[:space:]]*$' "$OUT/args.gn" | tee "$HOME/args-$PROF.gn"
+          cd "$CR"
+          export PATH="$HOME/depot_tools:$PATH"
+          echo "$(date -u +%FT%TZ) gn gen start" | tee -a "$HOME/timings.txt"
+          gn gen out/roansbrowser
+          echo "$(date -u +%FT%TZ) gn gen klaar" | tee -a "$HOME/timings.txt"
+          df -h / | tail -1 | tee -a "$HOME/timings.txt"
+
+      - name: 7. Bouwen (stopt op de ingestelde limiet, logt de voortgang)
+        continue-on-error: true
+        run: |
+          cd "$HOME/chromium/src"
+          export PATH="$HOME/depot_tools:$PATH"
+          export NINJA_SUMMARIZE_BUILD=1
+          export NINJA_STATUS="[%r running, %f/%t @ %o/s | %e sec ] "
+          MINS="${{ inputs.build_minutes }}"
+          echo "$(date -u +%FT%TZ) ninja start (${{ inputs.target }}, limiet ${MINS}m)" | tee -a "$HOME/timings.txt"
+          ( while true; do
+              sleep 900
+              echo "--- $(date -u +%FT%TZ) hartslag: $(du -sh out/roansbrowser 2>/dev/null | cut -f1) | vrij: $(df -h / | tail -1 | awk '{print $4}')"
+              tail -c 300 "$HOME/ninja.log" 2>/dev/null | tr '\r' '\n' | tail -2
+            done ) &
+          HEART=$!
+          set -o pipefail
+          timeout -s INT "${MINS}m" autoninja -C out/roansbrowser "${{ inputs.target }}" -j"$(nproc)" 2>&1 | tee "$HOME/ninja.log"
+          RC=$?
+          kill $HEART 2>/dev/null || true
+          echo "$(date -u +%FT%TZ) ninja gestopt, exit $RC (124 = limiet gehaald)" | tee -a "$HOME/timings.txt"
+          tail -c 600 "$HOME/ninja.log" | tr '\r' '\n' | tail -5
+          df -h / | tail -1 | tee -a "$HOME/timings.txt"
+          ls -lh out/roansbrowser/apks/*.apk 2>/dev/null || echo "nog geen APK"
+
+      - name: 8. Resultaat + metingen uploaden
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: metingen-${{ matrix.profile }}
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            /home/runner/timings.txt
+            /home/runner/ninja.log
+            /home/runner/args-${{ matrix.profile }}.gn
+            /home/runner/chromium/src/out/roansbrowser/apks/*.apk
