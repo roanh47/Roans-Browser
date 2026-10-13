@@ -33,6 +33,10 @@ source tree itself is fetched by the upstream build scripts and is not committed
   Cromite, which does ship real APKs, builds with `timeout-minutes: 1440` on its own builder
   (`runs-on` = workflow input), not on hosted runners.
 - Larger runners are not available on this account: a 16-core job stayed queued until cancelled.
+- Disk is the first wall, not just time: a full-history `fetch --nohooks chromium` + `gclient sync`
+  filled the 113 GB free on the runner in 95 min and died with `no space left on device` (run
+  38388352300). Use `fetch --no-history`, prune `~/.cipd/pkgs` after the sync, and keep ~60 GB free
+  for `out/`.
 - Consequence: app-layer APK builds (Gradle/WebView) belong in GitHub Actions. A compiled Chromium APK
   needs a self-hosted builder with ~16 cores, 64 GB RAM and 300 GB disk attached to this repo. Never
   promise an APK out of a hosted runner.

@@ -1,0 +1,5 @@
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/root       145G   32G  113G  22% /
+2026-10-13T11:11:25Z start
+2026-10-13T11:11:45Z depot_tools klaar
+2026-10-13T11:11:45Z fetch chromium start
