@@ -1095,8 +1095,8 @@ if (use_blink) {
     ]
 
     if (is_mac) {
-      data_deps += [ "//content/shell:thorium_shell" ]
-      data += [ "$root_out_dir/Thorium Shell.app/" ]
+      data_deps += [ "//content/shell:roansbrowser_shell" ]
+      data += [ "$root_out_dir/RoansBrowser Shell.app/" ]
     }
 
     if (toolkit_views && !is_mac) {

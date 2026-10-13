@@ -73,8 +73,8 @@ class ReloadButton : public ToolbarButton,
   FRIEND_TEST_ALL_PREFIXES(ReloadButtonTest, TooltipText);
   FRIEND_TEST_ALL_PREFIXES(ReloadButtonTest, TooltipTextAccessibility);
 
-  const bool disable_thorium_icons =
-      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-thorium-icons");
+  const bool disable_roansbrowser_icons =
+      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-roansbrowser-icons");
 
   std::unique_ptr<ui::SimpleMenuModel> CreateMenuModel();
 

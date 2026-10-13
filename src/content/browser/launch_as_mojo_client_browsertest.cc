@@ -37,9 +37,9 @@ namespace content {
 namespace {
 
 #if BUILDFLAG(IS_WIN)
-const char kShellExecutableName[] = "thorium_shell.exe";
+const char kShellExecutableName[] = "roansbrowser_shell.exe";
 #else
-const char kShellExecutableName[] = "thorium_shell";
+const char kShellExecutableName[] = "roansbrowser_shell";
 #endif
 
 base::FilePath GetCurrentDirectory() {

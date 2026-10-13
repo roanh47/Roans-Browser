@@ -1,9 +1,9 @@
-pkgbase = thorium-browser-bin
+pkgbase = roansbrowser-bin
 	pkgdesc = Chromium fork focused on high performance and security.
 	pkgver = 111.0.5563.111
 	pkgrel = 2
-	url = https://github.com/Alex313031/thorium
-	install = thorium-browser.install
+	url = https://github.com/roanh47/Roans-Browser
+	install = roansbrowser.install
 	arch = x86_64
 	license = GPLv3
 	depends = alsa-lib
@@ -20,9 +20,9 @@ pkgbase = thorium-browser-bin
 	optdepends = kwallet: for storing passwords in KWallet
 	options = !emptydirs
 	options = !strip
-	source = https://github.com/Alex313031/thorium/releases/download/M111.0.5563.111/thorium-browser_111.0.5563.111-1_amd64.deb
-	source = thorium-browser.sh
+	source = https://github.com/roanh47/Roans-Browser/releases/download/M111.0.5563.111/roansbrowser_111.0.5563.111-1_amd64.deb
+	source = roansbrowser.sh
 	sha512sums = b91554cc990241ed632c4a4abb14181b1598018716794ccf251d6baf77bca691722558cdcdbc5f88087ceb356a6cdfbf9095038189ecb7fa0777975a1ae13b4f
 	sha512sums = 91a532fde9e6e87d65b909a170d32808f1c05367104cdaab07043fef0de66bdfc307a4138584cd1eedc169a03207372df39c09268ab1ec741432e79e0dcc2dfb
 
-pkgname = thorium-browser-bin
+pkgname = roansbrowser-bin

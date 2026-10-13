@@ -43,19 +43,19 @@ printf "\n"
 # There isn't anything malicious here so it's OK
 
 # Cleanup old binaries
-rm -r -v ./THORIUM-PORTABLE &&
-rm -r -v ./THORIUM-SHELL &&
-rm -f -v ./C/THORIUM-PORTABLE.sh.x.c &&
-rm -f -v ./C/THORIUM-SHELL.sh.x.c &&
+rm -r -v ./ROANSBROWSER-PORTABLE &&
+rm -r -v ./ROANSBROWSER-SHELL &&
+rm -f -v ./C/ROANSBROWSER-PORTABLE.sh.x.c &&
+rm -f -v ./C/ROANSBROWSER-SHELL.sh.x.c &&
 
 sleep 1s &&
 
-shc -r -v -o ./THORIUM-PORTABLE -f ./THORIUM-PORTABLE.sh &&
-shc -r -v -o ./THORIUM-SHELL -f ./THORIUM-SHELL.sh &&
+shc -r -v -o ./ROANSBROWSER-PORTABLE -f ./ROANSBROWSER-PORTABLE.sh &&
+shc -r -v -o ./ROANSBROWSER-SHELL -f ./ROANSBROWSER-SHELL.sh &&
 
 # Move generated C files for possible future use
-mv -f -v ./THORIUM-PORTABLE.sh.x.c ./C/ &&
-mv -f -v ./THORIUM-SHELL.sh.x.c ./C/ &&
+mv -f -v ./ROANSBROWSER-PORTABLE.sh.x.c ./C/ &&
+mv -f -v ./ROANSBROWSER-SHELL.sh.x.c ./C/ &&
 
 printf "\n" &&
 printf "${GRE}Done!\n" &&

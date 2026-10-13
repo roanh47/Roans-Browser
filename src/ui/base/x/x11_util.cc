@@ -371,7 +371,7 @@ bool GetCustomFramePrefDefault() {
   }
 
   // Never default to using the custom title bar, unless the windows manager is a tiling WM.
-  // Thorium should integrate, not be a special little snowflake.
+  // RoansBrowser should integrate, not be a special little snowflake.
   return false;
 }
 

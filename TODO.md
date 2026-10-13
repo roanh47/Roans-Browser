@@ -4,7 +4,7 @@
 
  - Gimp and convert.exe to check ico sizes
 
-&#45; Add new Thorium shortcuts to ThoriumOS Shortcuts App
+&#45; Add new Roan's Browser shortcuts to RoansBrowserOS Shortcuts App
 
  - For ChromeOS only: If you plan on adding a new accelerator and want it
  displayed in the Shortcuts app, please follow the instructions at: `ash/webui/shortcut_customization_ui/backend/accelerator_layout_table.h`.
@@ -13,15 +13,15 @@
 
 ## .grd text replacements (search with grep), because there are a few places we want to tweak some strings.
 
-Chromium > Thorium
-Chrome > Thorium
-Google Thorium > Thorium
-Google recommends Thorium > Alex313031 recommends Thorium
-Thorium Web Store > Chrome Web Store (Except some UI elements like NTP)
-Thorium Remote Desktop > Chrome Remote Desktop
-ThoriumOS Flex > ThoriumOS
-made possible by Thorium > Chromium
-Experiments > Thorium Experiments
+Chromium > Roan's Browser
+Chrome > Roan's Browser
+Google Roan's Browser > Roan's Browser
+Google recommends Roan's Browser > Alex313031 recommends Roan's Browser
+Roan's Browser Web Store > Chrome Web Store (Except some UI elements like NTP)
+Roan's Browser Remote Desktop > Chrome Remote Desktop
+RoansBrowserOS Flex > RoansBrowserOS
+made possible by Roan's Browser > Chromium
+Experiments > Roan's Browser Experiments
 Aw, Snap! > Aw, #@%!, this tab's process has gone bye bye...
 Dino strings in components/error_page_strings.grdp
 
@@ -32,27 +32,27 @@ Add GM2 inkdrop for tabstrip control buttons.
 Remove //components/optimization_guide_core/optimization_guide_features.cc after upstream MacOS fix
 
 Opt with BOLT > https://aaupov.github.io/blog/2022/11/12/bolt-chromium
-SSD Restore > https://github.com/Alex313031/thorium/issues/61
-Add textbox disk cache dir flag > https://github.com/Alex313031/thorium/issues/860
+SSD Restore > https://github.com/roanh47/Roans-Browser/issues/61
+Add textbox disk cache dir flag > https://github.com/roanh47/Roans-Browser/issues/860
 Fix outline of omnibox and bookmarks bar underline with themes
 
 https://source.chromium.org/chromium/chromium/src/+/99fe5ddf4ecd908fd52d1d03565176f2f481c79e
 
 Make UA and hints report chrome, and set hints
 
-Test non-optimized Thorium, versus optimized Thorium, versus vanilla Chromium, versus vanilla Google Chrome, all at the same revision.
+Test non-optimized Roan's Browser, versus optimized Roan's Browser, versus vanilla Chromium, versus vanilla Google Chrome, all at the same revision.
 
 Fix multiple profiles lag if exists
 Fix download shelf height better and prevent separators from disappearing on resize
 Fix unmaximized drag height for all platforms, possibly unify at 6,7,8 pixels, also GetDragHandleExtension
-Add restart thorium, report issue, and whats new menu items from Primo and new function
+Add restart roansbrowser, report issue, and whats new menu items from Primo and new function
 Fix system extension integration like with dad uninstall issue
 Fix button sizing and jumping in toolbar on non-pixel aligned displays
 Fix omnibox dropdown alignment and search icon alignment again
 Add vector icon colors for top bar from Primo
 Fix omnibox dropdown highlight row right side rounding
 Fix side panel metrics and grab handle icon alignment
-Move thorium_shell, portable, and appimage to other, update doc refs
+Move roansbrowser_shell, portable, and appimage to other, update doc refs
 Move patches to separate dir, update doc refs
 Fix download shelf height dynamically, inspect startpadding and Alex313031: TODO: Use NTB method to p in chrome/browser/ui/views/download/download_item_view.cc.
 Fix download shelf hovercards on filename too long
@@ -60,9 +60,9 @@ kBetweenIconSpacing might cause crash
 MV2: https://github.com/primo-browser/primo/commit/5aa8d52a29f3b1162462a389444fb98b90ec4a1e  
      https://github.com/primo-browser/primo/commit/de205e3623e8d922c97b949e82e7937c1c7f5f8a
      https://github.com/primo-browser/primo/commit/e567420253e358977714769e5b83ea32f374e008
-Add thorium custom keyboard accelerators to chrome/browser/ui/cocoa/accelerators_cocoa.mm
+Add roansbrowser custom keyboard accelerators to chrome/browser/ui/cocoa/accelerators_cocoa.mm
 
-add thorium 2024 if else:
+add roansbrowser 2024 if else:
 -  return gfx::Rect(x, NonClientTopHeight(false), std::max(0, available_width),
 +  return gfx::Rect(x, GetTabStripInsetsTop(false), std::max(0, available_width),
 
@@ -73,7 +73,7 @@ Fix spacing
 remove
 +    static const int kCornerRadius = corner_radius;
 
-Add PRIMO_DEBUG fixes to Thorium.
+Add PRIMO_DEBUG fixes to Roan's Browser.
 https://github.com/primo-browser/primo/commit/946f3dfbed983efb7643fee26d31fd3c4205d9d9
 https://github.com/win32ss/supermium/issues/1412
 https://github.com/win32ss/supermium/commit/f46111bb8a9d29315740a28dcb2ee96fdb50f586

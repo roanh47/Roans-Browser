@@ -67,7 +67,7 @@ index 42706748b2d50..90ce02a65ebd1 100644
      }
    }
  
-+  if (features::IsThorium2024()) {
++  if (features::IsRoansBrowser2024()) {
 +    height -= 16;
 +  }
    // The normal height of the item which may be exceeded if text is large.

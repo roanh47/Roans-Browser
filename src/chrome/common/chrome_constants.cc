@@ -17,7 +17,7 @@ namespace chrome {
 #elif BUILDFLAG(GOOGLE_CHROME_FOR_TESTING_BRANDING)
 #define PRODUCT_FULLNAME_STRING "Google Chrome for Testing"
 #elif BUILDFLAG(CHROMIUM_BRANDING)
-#define PRODUCT_FULLNAME_STRING "Thorium"
+#define PRODUCT_FULLNAME_STRING "RoansBrowser"
 #else
 #error Unknown branding
 #endif
@@ -44,9 +44,9 @@ const char kBrandName[] = PRODUCT_FULLNAME_STRING;
 
 #if BUILDFLAG(IS_WIN)
 const base::FilePath::CharType kBrowserProcessExecutableName[] =
-    FPL("thorium.exe");
+    FPL("roansbrowser.exe");
 const base::FilePath::CharType kHelperProcessExecutableName[] =
-    FPL("thorium.exe");
+    FPL("roansbrowser.exe");
 #elif BUILDFLAG(IS_MAC)
 const base::FilePath::CharType kBrowserProcessExecutableName[] =
     FPL(PRODUCT_FULLNAME_STRING);
@@ -54,11 +54,11 @@ const base::FilePath::CharType kHelperProcessExecutableName[] =
     FPL(PRODUCT_FULLNAME_STRING " Helper");
 #elif BUILDFLAG(IS_ANDROID)
 // NOTE: Keep it synced with the process names defined in AndroidManifest.xml.
-const base::FilePath::CharType kBrowserProcessExecutableName[] = FPL("thorium");
+const base::FilePath::CharType kBrowserProcessExecutableName[] = FPL("roansbrowser");
 const base::FilePath::CharType kHelperProcessExecutableName[] =
     FPL("sandboxed_process");
 #elif BUILDFLAG(IS_POSIX)
-const base::FilePath::CharType kBrowserProcessExecutableName[] = FPL("thorium");
+const base::FilePath::CharType kBrowserProcessExecutableName[] = FPL("roansbrowser");
 // Helper processes end up with a name of "exe" due to execing via
 // /proc/self/exe.  See bug 22703.
 const base::FilePath::CharType kHelperProcessExecutableName[] = FPL("exe");
@@ -66,9 +66,9 @@ const base::FilePath::CharType kHelperProcessExecutableName[] = FPL("exe");
 
 #if BUILDFLAG(IS_WIN)
 const base::FilePath::CharType kBrowserProcessExecutablePath[] =
-    FPL("thorium.exe");
+    FPL("roansbrowser.exe");
 const base::FilePath::CharType kHelperProcessExecutablePath[] =
-    FPL("thorium.exe");
+    FPL("roansbrowser.exe");
 #elif BUILDFLAG(IS_MAC)
 const base::FilePath::CharType kBrowserProcessExecutablePath[] =
     FPL(PRODUCT_FULLNAME_STRING ".app/Contents/MacOS/" PRODUCT_FULLNAME_STRING);
@@ -79,15 +79,15 @@ const base::FilePath::CharType
 const base::FilePath::CharType kGoogleChromeBrowserProcessExecutablePath[] =
     FPL("Google Chrome.app/Contents/MacOS/Google Chrome");
 const base::FilePath::CharType kChromiumBrowserProcessExecutablePath[] =
-    FPL("Thorium.app/Contents/MacOS/Thorium");
+    FPL("RoansBrowser.app/Contents/MacOS/RoansBrowser");
 const base::FilePath::CharType kHelperProcessExecutablePath[] =
     FPL(PRODUCT_FULLNAME_STRING " Helper.app/Contents/MacOS/" PRODUCT_FULLNAME_STRING " Helper");
 #elif BUILDFLAG(IS_ANDROID)
-const base::FilePath::CharType kBrowserProcessExecutablePath[] = FPL("thorium");
-const base::FilePath::CharType kHelperProcessExecutablePath[] = FPL("thorium");
+const base::FilePath::CharType kBrowserProcessExecutablePath[] = FPL("roansbrowser");
+const base::FilePath::CharType kHelperProcessExecutablePath[] = FPL("roansbrowser");
 #elif BUILDFLAG(IS_POSIX)
-const base::FilePath::CharType kBrowserProcessExecutablePath[] = FPL("thorium");
-const base::FilePath::CharType kHelperProcessExecutablePath[] = FPL("thorium");
+const base::FilePath::CharType kBrowserProcessExecutablePath[] = FPL("roansbrowser");
+const base::FilePath::CharType kHelperProcessExecutablePath[] = FPL("roansbrowser");
 #endif  // OS_*
 
 #if BUILDFLAG(IS_MAC)

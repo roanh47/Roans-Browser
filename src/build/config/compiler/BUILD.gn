@@ -408,7 +408,7 @@ config("compiler") {
       }
     }
 
-    # ADDED BY ALEX313031 FOR THORIUM
+    # ADDED BY ALEX313031 FOR ROANSBROWSER
     if (is_clang && is_android && !is_ubsan && !is_ubsan_security) {
       cflags += [ "-fwrapv" ]
     }
@@ -2654,8 +2654,8 @@ config("no_incompatible_pointer_warnings") {
   }
 }
 
-# Thorium SIMD optimizations
-config("thorium_simd_optimization") {
+# RoansBrowser SIMD optimizations
+config("roansbrowser_simd_optimization") {
   cflags = []
   ldflags = []
   if (current_cpu == "x86") {

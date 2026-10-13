@@ -10,8 +10,8 @@ Provides: @@PROVIDES@@
 Pre-Depends: @@PREDEPENDS@@
 Depends: @@DEPENDS@@
 Recommends: vdpau-driver-all
-Conflicts: thorium-browser-unstable
-Replaces: thorium-browser-unstable
+Conflicts: roansbrowser-unstable
+Replaces: roansbrowser-unstable
 Architecture: @@ARCHITECTURE@@
 Description: @@SHORTDESC@@
  @@FULLDESC@@

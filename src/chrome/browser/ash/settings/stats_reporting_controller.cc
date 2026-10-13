@@ -58,7 +58,7 @@ void StatsReportingController::SetEnabled(Profile* profile, bool enabled) {
 }
 
 bool StatsReportingController::IsEnabled() const {
-  // Disable Telemetry in ThoriumOS
+  // Disable Telemetry in RoansBrowserOS
   return false;
 }
 

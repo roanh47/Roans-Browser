@@ -227,7 +227,7 @@ FeaturePromoResult FeaturePromoController20::CanShowPromoCommon(
     outputs->anchor_element = anchor_element;
   }
 
-  // Never show annoying promos in Thorium
+  // Never show annoying promos in RoansBrowser
   return FeaturePromoResult::kBlockedByConfig;
 }
 

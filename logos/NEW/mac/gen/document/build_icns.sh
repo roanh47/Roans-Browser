@@ -15,26 +15,26 @@ die() { yell "$*"; exit 111; }
 try() { "$@" || die "${RED}Failed $*"; }
 
 printf "\n" &&
-printf "${YEL}Generating Thorium Document .icns file for MacOS...\n" &&
+printf "${YEL}Generating RoansBrowser Document .icns file for MacOS...\n" &&
 printf "${GRE}\n" &&
 
 # Copy .pngs
-export output_iconset_name="ThoriumDocument.iconset" &&
+export output_iconset_name="RoansBrowserDocument.iconset" &&
 
 mkdir $output_iconset_name &&
 
-cp -v ./icon_16x16.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_16x16@2x.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_32x32.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_32x32@2x.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_64x64.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_64x64@2x.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_128x128.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_128x128@2x.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_256x256.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_256x256@2x.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_512x512.png ./ThoriumDocument.iconset/ &&
-cp -v ./icon_512x512@2x.png ./ThoriumDocument.iconset/ &&
+cp -v ./icon_16x16.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_16x16@2x.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_32x32.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_32x32@2x.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_64x64.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_64x64@2x.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_128x128.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_128x128@2x.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_256x256.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_256x256@2x.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_512x512.png ./RoansBrowserDocument.iconset/ &&
+cp -v ./icon_512x512@2x.png ./RoansBrowserDocument.iconset/ &&
 
 # Generate .icns file
 iconutil -c icns $output_iconset_name &&

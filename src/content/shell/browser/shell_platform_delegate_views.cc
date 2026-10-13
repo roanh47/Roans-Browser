@@ -374,8 +374,8 @@ void ShellPlatformDelegate::CreatePlatformWindow(
   params.bounds = gfx::Rect(initial_size);
   params.delegate = delegate.release();
 #if BUILDFLAG(IS_LINUX)
-  params.wm_class_class = "thorium_shell";
-  params.wm_class_name = "Thorium Shell";
+  params.wm_class_class = "roansbrowser_shell";
+  params.wm_class_name = "RoansBrowser Shell";
 #endif  // BUILDFLAG(IS_LINUX)
   shell_data.window_widget->Init(std::move(params));
 #endif  // BUILDFLAG(IS_CHROMEOS)

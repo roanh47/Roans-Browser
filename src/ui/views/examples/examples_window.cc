@@ -142,7 +142,7 @@ class ExamplesWindowContents : public WidgetDelegateView,
 
  private:
   // WidgetDelegateView:
-  std::u16string GetWindowTitle() const override { return u"Thorium UI Debug Shell"; }
+  std::u16string GetWindowTitle() const override { return u"RoansBrowser UI Debug Shell"; }
   void WindowClosing() override {
     instance_ = nullptr;
     if (on_close_) {

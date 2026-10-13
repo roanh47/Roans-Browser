@@ -31,16 +31,16 @@ printf "${CYA}\n" &&
 cd ${CR_SRC_DIR} &&
 
 # Fix file attr
-xattr -csr out/thorium/Chromium.app &&
+xattr -csr out/roansbrowser/Chromium.app &&
 
 # Sign binary
-codesign --force --deep --sign - out/thorium/Chromium.app &&
+codesign --force --deep --sign - out/roansbrowser/Chromium.app &&
 
 # Build dmg package
-chrome/installer/mac/pkg-dmg --sourcefile --source out/thorium/Chromium.app --target "out/thorium/Chromium_MacOS.dmg" --volname Chromium --symlink /Applications:/Applications --format UDBZ --verbosity 2 &&
+chrome/installer/mac/pkg-dmg --sourcefile --source out/roansbrowser/Chromium.app --target "out/roansbrowser/Chromium_MacOS.dmg" --volname Chromium --symlink /Applications:/Applications --format UDBZ --verbosity 2 &&
 
-cd $HOME/thorium &&
+cd $HOME/roansbrowser &&
 cat logos/apple_ascii_art.txt &&
 
-printf "${GRE}.DMG Build Completed. ${YEL}Installer at //chromium/src/out/thorium/Chromium*.dmg\n" &&
+printf "${GRE}.DMG Build Completed. ${YEL}Installer at //chromium/src/out/roansbrowser/Chromium*.dmg\n" &&
 tput sgr0

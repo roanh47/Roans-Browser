@@ -12,7 +12,7 @@
 	<Tool
 		Name="VCLinkerTool"
 		DelayLoadDLLs="ole32.dll;oleaut32.dll"
-		OutputFile="$(OutDir)\thorium.exe"
+		OutputFile="$(OutDir)\roansbrowser.exe"
 		ProgramDatabaseFile="$(OutDir)\$(ProjectName).pdb"
 	/>
 	<Tool

@@ -39,7 +39,7 @@ export function getHtml(this: AppElement) {
         </div>
         <h1 class="section-header-title">$i18n{heading}</h1>
       </div>
-      <span title="Thorium Version" id="version" class="flex">$i18n{version}</span>
+      <span title="RoansBrowser Version" id="version" class="flex">$i18n{version}</span>
     </div>
     <div class="blurb-container">
       <span class="blurb-warning">$i18n{page-warning}</span>

@@ -151,14 +151,14 @@ void BrowserAppMenuButton::UpdateThemeBasedState() {
 }
 
 void BrowserAppMenuButton::UpdateIcon() {
-  static const bool disable_thorium_icons =
-      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-thorium-icons");
+  static const bool disable_roansbrowser_icons =
+      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-roansbrowser-icons");
   const gfx::VectorIcon& icon = ui::TouchUiController::Get()->touch_ui()
                                     ? kBrowserToolsTouchIcon
-                                    : disable_thorium_icons
+                                    : disable_roansbrowser_icons
                                           ? kBrowserToolsChromeRefreshIcon
-                                          : kBrowserToolsChromeRefreshThoriumIcon;
-  // Fix Thorium hamburger menu size
+                                          : kBrowserToolsChromeRefreshRoansBrowserIcon;
+  // Fix RoansBrowser hamburger menu size
   constexpr int icon_size = 22;
   for (auto state : kButtonStates) {
     SkColor icon_color = GetForegroundColor(state);

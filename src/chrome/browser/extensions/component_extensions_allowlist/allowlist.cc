@@ -27,14 +27,14 @@
 
 namespace extensions {
 
-// The UUID of Thorium's external Hangouts component extension
-static inline constexpr char kThoriumHangoutsId[] = "inomiaajaofonadigcpnaacolkggjjpo";
+// The UUID of RoansBrowser's external Hangouts component extension
+static inline constexpr char kRoansBrowserHangoutsId[] = "inomiaajaofonadigcpnaacolkggjjpo";
 
 bool IsComponentExtensionAllowlisted(const std::string& extension_id) {
   constexpr auto kAllowed = base::MakeFixedFlatSet<std::string_view>({
       extension_misc::kInAppPaymentsSupportAppId,
       extension_misc::kPdfExtensionId,
-      kThoriumHangoutsId,
+      kRoansBrowserHangoutsId,
 #if BUILDFLAG(IS_CHROMEOS)
       extension_misc::kAssessmentAssistantExtensionId,
       extension_misc::kAccessibilityCommonExtensionId,

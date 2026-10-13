@@ -1,3 +1,3 @@
-## Thorium Changelog
+## Roan's Browser Changelog
 
 M130

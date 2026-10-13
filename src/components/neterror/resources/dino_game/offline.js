@@ -121,9 +121,9 @@ export function Runner(outerContainerId, opt_config) {
 const DEFAULT_WIDTH = 600;
 
 /** @const */
-/** const ARCADE_MODE_URL = 'Thorium Dino'; */
+/** const ARCADE_MODE_URL = 'RoansBrowser Dino'; */
 const ARCADE_MODE_URL = 'chrome://dino/';
-const ARCADE_MODE2_URL = 'Thorium Dino Game';
+const ARCADE_MODE2_URL = 'RoansBrowser Dino Game';
 
 /** @const */
 const RESOURCE_POSTFIX = 'offline-resources-';
@@ -1413,9 +1413,9 @@ Runner.prototype = {
     // control characters &#x202A; and &#x202C but are invisible.
     const is_chrome_dino = IS_RTL ? document.title.indexOf(ARCADE_MODE_URL) == 1
                                   : document.title === ARCADE_MODE_URL;
-    const is_thorium_dino = IS_RTL ? document.title.indexOf(ARCADE_MODE2_URL) == 1
+    const is_roansbrowser_dino = IS_RTL ? document.title.indexOf(ARCADE_MODE2_URL) == 1
                                    : document.title === ARCADE_MODE2_URL;
-    return is_chrome_dino || is_thorium_dino;
+    return is_chrome_dino || is_roansbrowser_dino;
   },
 
   /**

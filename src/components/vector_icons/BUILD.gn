@@ -283,11 +283,11 @@ if (current_toolchain == default_toolchain) {
       "work.icon",
     ]
 
-  if (is_thorium_build) {
+  if (is_roansbrowser_build) {
     sources += [
-      "thorium/reload_thorium.icon",
-      "thorium/reload_chrome_refresh_thorium.icon",
-      "thorium/restore_tab.icon"
+      "roansbrowser/reload_roansbrowser.icon",
+      "roansbrowser/reload_chrome_refresh_roansbrowser.icon",
+      "roansbrowser/restore_tab.icon"
     ]
   }
 

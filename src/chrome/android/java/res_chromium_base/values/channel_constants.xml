@@ -7,8 +7,8 @@ found in the LICENSE file.
 
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- The application name displayed to the user. -->
-    <string name="app_name" translatable="false">Thorium</string>
-    <string name="bookmark_widget_title" translatable="false">Thorium Bookmarks</string>
-    <string name="search_widget_title" translatable="false">Thorium Search</string>
-    <string name="quick_action_search_widget_title" translatable="false">Thorium Quick Action Search</string>
+    <string name="app_name" translatable="false">RoansBrowser</string>
+    <string name="bookmark_widget_title" translatable="false">RoansBrowser Bookmarks</string>
+    <string name="search_widget_title" translatable="false">RoansBrowser Search</string>
+    <string name="quick_action_search_widget_title" translatable="false">RoansBrowser Quick Action Search</string>
 </resources>

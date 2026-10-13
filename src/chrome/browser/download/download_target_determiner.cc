@@ -996,7 +996,7 @@ DownloadTargetDeterminer::Result
   static const bool allow_insecure_downloads_ =
       base::CommandLine::ForCurrentProcess()->HasSwitch("allow-insecure-downloads");
 
-  // Continue with this Thorium flag
+  // Continue with this RoansBrowser flag
   if (danger_level_ == DownloadFileType::NOT_DANGEROUS || allow_insecure_downloads_) {
     return CONTINUE;
   }
@@ -1304,7 +1304,7 @@ DownloadFileType::DangerLevel DownloadTargetDeterminer::GetDangerLevel(
 
   static const bool allow_insecure_downloads_ =
       base::CommandLine::ForCurrentProcess()->HasSwitch("allow-insecure-downloads");
-  // Allow all downloads with this Thorium flag
+  // Allow all downloads with this RoansBrowser flag
   if (allow_insecure_downloads_) {
     return DownloadFileType::NOT_DANGEROUS;
   }

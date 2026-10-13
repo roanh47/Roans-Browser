@@ -9,7 +9,7 @@
   <summary>@@SHORTDESC@@</summary>
   <description>
     <p>
-    Thorium is an open-source browser project that aims to build a safer, faster,
+    RoansBrowser is an open-source browser project that aims to build a safer, faster,
     and more stable way to experience the web.
     </p>
     <p>
@@ -17,13 +17,13 @@
     new generation of web applications.
     </p>
     <p>
-    Thorium supports Vorbis, Theora, WebM, AAC, H.264, H.265, MP3, and HTML5 audio and video standards.
+    RoansBrowser supports Vorbis, Theora, WebM, AAC, H.264, H.265, MP3, and HTML5 audio and video standards.
     </p>
   </description>
   <url type="homepage">@@PRODUCTURL@@</url>
   <screenshots>
     <screenshot type="default">
-      <image>https://github.com/Alex313031/thorium/blob/main/logos/STAGING/Thorium_Screenshot.png</image>
+      <image>https://github.com/roanh47/Roans-Browser/blob/main/logos/STAGING/RoansBrowser_Screenshot.png</image>
       <caption/>
     </screenshot>
   </screenshots>

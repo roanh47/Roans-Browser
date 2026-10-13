@@ -152,7 +152,7 @@ std::string GetDesktopName(base::Environment* env) {
   if (name.has_value() && !name.value().empty()) {
     return name.value();
   }
-  return "thorium-browser.desktop";
+  return "roansbrowser.desktop";
 #endif
 }
 #endif  // BUILDFLAG(IS_LINUX)

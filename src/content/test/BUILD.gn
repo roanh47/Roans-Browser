@@ -2277,8 +2277,8 @@ test("content_browsertests") {
       "../renderer/render_view_browsertest_mac.mm",
     ]
     deps += [ "//third_party/ocmock" ]
-    data_deps += [ "//content/shell:thorium_shell" ]
-    data += [ "$root_out_dir/Thorium Shell.app/" ]
+    data_deps += [ "//content/shell:roansbrowser_shell" ]
+    data += [ "$root_out_dir/RoansBrowser Shell.app/" ]
     weak_frameworks = [ "ScreenCaptureKit.framework" ]  # macOS 12.3
   }
 
@@ -2325,7 +2325,7 @@ test("content_browsertests") {
       "//mojo/public/cpp/platform",
       "//mojo/public/mojom/base",
     ]
-    data_deps += [ "//content/shell:thorium_shell" ]
+    data_deps += [ "//content/shell:roansbrowser_shell" ]
     if (use_ozone) {
       deps += [ "//ui/ozone" ]
     }

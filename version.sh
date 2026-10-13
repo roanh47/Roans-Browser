@@ -18,7 +18,7 @@ try() { "$@" || die "${RED}Failed $*"; }
 # --help
 displayHelp () {
 	printf "\n" &&
-	printf "${bold}${YEL}Script to check out Chromium tag of current Thorium version.${c0}\n" &&
+	printf "${bold}${YEL}Script to check out Chromium tag of current RoansBrowser version.${c0}\n" &&
 	printf "\n"
 	printf "${RED}NOTE: You may need to run ${c0}${bold}./trunk.sh ${RED}before using this script!${c0}\n" &&
 	printf "\n"
@@ -41,7 +41,7 @@ THOR_VER="138.0.7204.306"
 export THOR_VER &&
 
 printf "\n"
-printf "${GRE}Current Thorium version is:${c0} ${underline}$THOR_VER${c0}\n"
+printf "${GRE}Current RoansBrowser version is:${c0} ${underline}$THOR_VER${c0}\n"
 printf "\n"
 printf "${RED}NOTE: ${YEL}Checking out${CYA} tags/$THOR_VER ${YEL}in ${CR_SRC_DIR}...${c0}\n"
 printf "\n"
@@ -50,15 +50,15 @@ cd ${CR_SRC_DIR} &&
 
 git checkout -f tags/$THOR_VER &&
 
-cd ~/thorium &&
+cd ~/roansbrowser &&
 
 # Use our artifacts hash
 cp -v src/build/vs_toolchain.py ${CR_SRC_DIR}/build/ &&
 
 # Add //third_party/libjxl to DEPS
-cp -v thorium-libjxl/src/DEPS ${CR_SRC_DIR}/ &&
-cp -v thorium-libjxl/src/.gitmodules ${CR_SRC_DIR}/ &&
-cp -v thorium-libjxl/src/third_party/.gitignore ${CR_SRC_DIR}/third_party/ &&
+cp -v libjxl/src/DEPS ${CR_SRC_DIR}/ &&
+cp -v libjxl/src/.gitmodules ${CR_SRC_DIR}/ &&
+cp -v libjxl/src/third_party/.gitignore ${CR_SRC_DIR}/third_party/ &&
 
 cd ${CR_SRC_DIR} &&
 
@@ -106,7 +106,7 @@ else
 fi
 printf "\n" &&
 
-cd ~/thorium &&
+cd ~/roansbrowser &&
 
 printf "${GRE}Done! ${YEL}You can now run \'./setup.sh\'\n"
 tput sgr0

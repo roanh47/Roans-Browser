@@ -18,33 +18,33 @@ try() { "$@" || die "${RED}Failed $*"; }
 # --help
 displayHelp () {
 	printf "\n" &&
-	printf "${bold}${GRE}Script to build Thorium and Thorium Shell on MacOS.${c0}\n" &&
+	printf "${bold}${GRE}Script to build RoansBrowser and RoansBrowser Shell on MacOS.${c0}\n" &&
 	printf "${underline}${YEL}Usage:${c0} build.sh # (where # is number of jobs)${c0}\n" &&
-	printf "${YEL}Use the --build-shell flag to also build the thorium_shell target.${c0}\n" &&
+	printf "${YEL}Use the --build-shell flag to also build the roansbrowser_shell target.${c0}\n" &&
 	printf "\n"
 }
 case $1 in
 	--help) displayHelp; exit 0;;
 esac
 
-# Build Thorium Shell in addition to the others.
+# Build RoansBrowser Shell in addition to the others.
 buildShell () {
 	printf "\n" &&
-	printf "${YEL}Building Thorium and Thorium Shell for MacOS...\n" &&
+	printf "${YEL}Building RoansBrowser and RoansBrowser Shell for MacOS...\n" &&
 	printf "${CYA}\n" &&
 	
-	# Build Thorium
+	# Build RoansBrowser
 	export NINJA_SUMMARIZE_BUILD=1 &&
 	export NINJA_STATUS="[%r processes, %f/%t @ %o/s | %e sec. ] " &&
 	
 	cd ${CR_SRC_DIR} &&
-	autoninja -C out/thorium thorium chromedriver thorium_shell policy_templates -j$@ &&
+	autoninja -C out/roansbrowser roansbrowser chromedriver roansbrowser_shell policy_templates -j$@ &&
 
 	printf "\n" &&
-	cat ~/thorium/logos/thorium_logo_ascii_art.txt &&
+	cat ~/roansbrowser/logos/roansbrowser_logo_ascii_art.txt &&
 	printf "\n" &&
 	
-	printf "${GRE}${bold}Build Completed. ${YEL}${bold}You can now run \'./create_dmg.sh\', and copy the Thorium Shell.app out.\n" &&
+	printf "${GRE}${bold}Build Completed. ${YEL}${bold}You can now run \'./create_dmg.sh\', and copy the RoansBrowser Shell.app out.\n" &&
 	tput sgr0
 }
 case $1 in
@@ -61,22 +61,22 @@ else
 fi
 
 printf "\n" &&
-printf "${YEL}Building Thorium for MacOS...\n" &&
+printf "${YEL}Building RoansBrowser for MacOS...\n" &&
 printf "${CYA}\n" &&
 
-# Build Thorium
+# Build RoansBrowser
 export NINJA_SUMMARIZE_BUILD=1 &&
 export NINJA_STATUS="[%r processes, %f/%t @ %o/s | %e sec. ] " &&
 
 cd ${CR_SRC_DIR} &&
 # For restoring individual build targets for customization
-#autoninja -C out/thorium thorium chromedriver policy_templates -j$@ &&
-autoninja -C out/thorium thorium_all -j$@ &&
+#autoninja -C out/roansbrowser roansbrowser chromedriver policy_templates -j$@ &&
+autoninja -C out/roansbrowser roansbrowser_all -j$@ &&
 printf "${GRE}\nBuilding installer...\n" &&
-autoninja -C out/thorium chrome/installer/mac minidump_stackwalk -j$@ &&
+autoninja -C out/roansbrowser chrome/installer/mac minidump_stackwalk -j$@ &&
 
 printf "\n" &&
-cat ~/thorium/logos/thorium_logo_ascii_art.txt &&
+cat ~/roansbrowser/logos/roansbrowser_logo_ascii_art.txt &&
 printf "\n" &&
 
 printf "${GRE}${bold}Build Completed. ${YEL}${bold}You can now run \'./create_dmg.sh\'\n" &&

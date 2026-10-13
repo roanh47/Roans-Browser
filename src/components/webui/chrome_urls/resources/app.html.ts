@@ -9,8 +9,8 @@ import type {ChromeUrlsAppElement} from './app.js';
 export function getHtml(this: ChromeUrlsAppElement) {
   // clang-format off
   return html`
-<h1>Thorium URLs</h1>
-<h2>List of Thorium chrome:// URLs</h2>
+<h1>RoansBrowser URLs</h1>
+<h2>List of RoansBrowser chrome:// URLs</h2>
 <ul>
   ${this.webuiUrlInfos_.map(info => html`
     ${this.isChromeUrlsUrl_(info) ?

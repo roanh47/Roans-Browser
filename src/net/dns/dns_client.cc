@@ -89,8 +89,8 @@ void UpdateConfigForDohUpgrade(DnsConfig* config) {
 }
 
 class DnsClientImpl : public DnsClient {
- const bool disable_thorium_dns_config =
-     base::CommandLine::ForCurrentProcess()->HasSwitch("disable-thorium-dns-config");
+ const bool disable_roansbrowser_dns_config =
+     base::CommandLine::ForCurrentProcess()->HasSwitch("disable-roansbrowser-dns-config");
  public:
   DnsClientImpl(NetLog* net_log, const RandIntCallback& rand_int_callback)
       : net_log_(net_log), rand_int_callback_(rand_int_callback) {}
@@ -253,8 +253,8 @@ class DnsClientImpl : public DnsClient {
  private:
   std::optional<DnsConfig> BuildEffectiveConfig() const {
     DnsConfig config;
-    // In Thorium it is sufficient to have secure DoH enabled to give the overrides priority
-    if (config_overrides_.dns_over_https_config && config_overrides_.secure_dns_mode && !disable_thorium_dns_config) {
+    // In RoansBrowser it is sufficient to have secure DoH enabled to give the overrides priority
+    if (config_overrides_.dns_over_https_config && config_overrides_.secure_dns_mode && !disable_roansbrowser_dns_config) {
       config = config_overrides_.ApplyOverrides(DnsConfig());
     } else {
       if (!system_config_) {

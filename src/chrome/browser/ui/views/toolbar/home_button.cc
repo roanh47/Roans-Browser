@@ -138,12 +138,12 @@ HomeButton::HomeButton(PressedCallback callback, PrefService* prefs)
   SetTriggerableEventFlags(ui::EF_LEFT_MOUSE_BUTTON |
                            ui::EF_MIDDLE_MOUSE_BUTTON);
 
-  static const bool disable_thorium_icons =
-      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-thorium-icons");
-  if (disable_thorium_icons) {
+  static const bool disable_roansbrowser_icons =
+      base::CommandLine::ForCurrentProcess()->HasSwitch("disable-roansbrowser-icons");
+  if (disable_roansbrowser_icons) {
     SetVectorIcons(kNavigateHomeChromeRefreshIcon, kNavigateHomeTouchIcon);
   } else {
-    SetVectorIcons(kNavigateHomeChromeRefreshThoriumIcon, kNavigateHomeTouchIcon);
+    SetVectorIcons(kNavigateHomeChromeRefreshRoansBrowserIcon, kNavigateHomeTouchIcon);
   }
 
   SetTooltipText(l10n_util::GetStringUTF16(IDS_TOOLTIP_HOME));

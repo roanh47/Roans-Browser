@@ -18,7 +18,7 @@ try() { "$@" || die "${RED}Failed $*"; }
 # --help
 displayHelp () {
 	printf "\n" &&
-	printf "${bold}${GRE}Script to fix libaom issues when compiling Thorium for arm64.${c0}\n" &&
+	printf "${bold}${GRE}Script to fix libaom issues when compiling RoansBrowser for arm64.${c0}\n" &&
 	printf "\n"
 }
 case $1 in

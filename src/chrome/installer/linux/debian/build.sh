@@ -105,7 +105,7 @@ verify_package() {
     exit $BAD_DIFF
   fi
 
-  # Rename package to match Thorium naming scheme
+  # Rename package to match RoansBrowser naming scheme
   mv -v "${PACKAGE}_${VERSIONFULL}_${ARCHITECTURE}.deb" "${PACKAGE}_${DEBVERSIONNAME}${NAME_SUFFIX}.deb"
 }
 
@@ -161,15 +161,15 @@ verify_channel() {
   case $CHANNEL in
     stable )
       CHANNEL=stable
-      RELEASENOTES="https://github.com/Alex313031/Thorium/releases"
+      RELEASENOTES="https://github.com/Alex313031/RoansBrowser/releases"
       ;;
     beta|testing )
       CHANNEL=beta
-      RELEASENOTES="https://github.com/Alex313031/Thorium/releases"
+      RELEASENOTES="https://github.com/Alex313031/RoansBrowser/releases"
       ;;
     dev|unstable|alpha )
       CHANNEL=unstable
-      RELEASENOTES="https://github.com/Alex313031/Thorium/releases"
+      RELEASENOTES="https://github.com/Alex313031/RoansBrowser/releases"
       ;;
     # Canary is released twice a day automatically, so no release notes
     # attached.
@@ -289,7 +289,7 @@ cd "${OUTPUTDIR}"
 # Allowed configs include optional HTTPS support and explicit multiarch
 # platforms.
 
-# Unset repoconfig for Thorium
+# Unset repoconfig for RoansBrowser
 #BASEREPOCONFIG="dl.google.com/linux/chrome/deb/ stable main"
 REPOCONFIG=
 REPOCONFIGREGEX="deb (\\[arch=[^]]*\\b${ARCHITECTURE}\\b[^]]*\\]"

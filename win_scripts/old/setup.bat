@@ -3,9 +3,9 @@
 
 echo "Creating build output directory..." &&
 
-mkdir C:\src\chromium\src\out\thorium &&
+mkdir C:\src\chromium\src\out\roansbrowser &&
 
-echo "Copying Thorium source files over the Chromium tree..." &&
+echo "Copying RoansBrowser source files over the Chromium tree..." &&
 
 copy ..\src\BUILD.gn C:\src\chromium\src\ &&
 copy ..\src\ash\* C:\src\chromium\src\ash &&
@@ -21,8 +21,8 @@ copy ..\src\third_party\* C:\src\chromium\src\third_party &&
 copy ..\src\tools\* C:\src\chromium\src\tools &&
 copy ..\src\ui\* C:\src\chromium\src\ui &&
 copy ..\src\v8\* C:\src\chromium\src\v8 &&
-copy ..\src\thorium_shell\* C:\src\chromium\src\out\thorium &&
-copy ..\src\pak_src\bin\pak-win\* C:\src\chromium\src\out\thorium &&
+copy ..\src\roansbrowser_shell\* C:\src\chromium\src\out\roansbrowser &&
+copy ..\src\pak_src\bin\pak-win\* C:\src\chromium\src\out\roansbrowser &&
 
 set NINJA_SUMMARIZE_BUILD=1 &&
 

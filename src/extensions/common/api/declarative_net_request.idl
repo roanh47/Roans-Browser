@@ -815,7 +815,7 @@ namespace declarativeNetRequest {
         TestMatchOutcomeCallback callback);
   };
 
-  // Increase MV3 limits in Thorium!
+  // Increase MV3 limits in RoansBrowser!
   interface Properties {
     // The minimum number of static rules guaranteed to an extension across its
     // enabled static rulesets. Any rules above this limit will count towards

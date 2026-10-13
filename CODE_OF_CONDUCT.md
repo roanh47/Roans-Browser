@@ -1,17 +1,17 @@
-# Thorium Code of Conduct <img src="https://github.com/Alex313031/thorium/blob/main/logos/NEW/COC_Light.png#gh-dark-mode-only" width="32"> <img src="https://github.com/Alex313031/thorium/blob/main/logos/NEW/COC_Dark.png#gh-light-mode-only" width="32">
+# Roan's Browser Code of Conduct <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/COC_Light.png#gh-dark-mode-only" width="32"> <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/COC_Dark.png#gh-light-mode-only" width="32">
 
-<img src="https://github.com/Alex313031/thorium/blob/main/logos/NEW/Thorium_COC_Light.png#gh-dark-mode-only" width="256"> <img src="https://github.com/Alex313031/thorium/blob/main/logos/NEW/Thorium_COC_Dark.png#gh-light-mode-only" width="256">
+<img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/RoansBrowser_COC_Light.png#gh-dark-mode-only" width="256"> <img src="https://github.com/roanh47/Roans-Browser/blob/main/logos/NEW/RoansBrowser_COC_Dark.png#gh-light-mode-only" width="256">
 
-The Thorium Authors and the Chromium team are committed to preserving and fostering a
+The Roan's Browser Authors and the Chromium team are committed to preserving and fostering a
 diverse, welcoming community. Below is our community code of conduct, which
-applies to the Thorium repository, the Chromium repository, Alex313031 blog content, and any other Chromium-supported communication group or Thorium discussion board, as well as any private communication initiated in the context of these
+applies to the Roan's Browser repository, the Chromium repository, Alex313031 blog content, and any other Chromium-supported communication group or Roan's Browser discussion board, as well as any private communication initiated in the context of these
 spaces, including GitHub Issues. This code of conduct must be followed by everyone contributing to or engaging with
-the Thorium project, regardless of affiliation or position.
+the Roan's Browser project, regardless of affiliation or position.
 
 Simply put, community discussions should be
 
  * respectful and kind;
- * about Thorium and/or Chromium;
+ * about Roan's Browser and/or Chromium;
  * about features and code, not the individuals involved (although friendly personal joking or discussion about individual matters is allowed).
 
 ## Be respectful and constructive.
@@ -19,7 +19,7 @@ Simply put, community discussions should be
 Treat everyone with respect. Build on each other's ideas. Each of us has the
 right to enjoy our developer experience and participate without fear of harassment,
 discrimination, or condescension, whether blatant or subtle. Remember that
-Thorium and Chromium is a geographically distributed team and that you may not be
+Roan's Browser and Chromium is a geographically distributed team and that you may not be
 communicating with someone in their primary language. We all get frustrated
 when working on hard problems, but we cannot allow that frustration to turn
 into personal attacks.
@@ -60,16 +60,16 @@ not act on complaints that we feel are not violations of this code of conduct.
 ## Consequences for failing to comply with this policy
 
 Consequences for failing to comply with this policy may include, at the sole
-discretion of the a Thorium Maintainer or the Chromium community managers:
+discretion of the a Roan's Browser Maintainer or the Chromium community managers:
 
  * a request for an apology;
  * a private or public warning or reprimand;
  * a temporary ban from the mailing list, blog, Chromium repository or
    organization, or other Chromium-supported communication group, including
    loss of committer status;
- * a temporary ban from the Thorium repository, discussion groups, or blog.
+ * a temporary ban from the Roan's Browser repository, discussion groups, or blog.
  * a permanent ban from any of the above, or from all current and future
-   Thorium-supported or Chromium-supported communities, including loss of
+   Roan's Browser-supported or Chromium-supported communities, including loss of
    committer/maintainer status.
 
 Participants warned to stop any harassing behavior are expected to comply

@@ -36,41 +36,41 @@ export LD_LIBRARY_PATH
 
 # Clean up old crash reports (see https://bugs.debian.org/1015931)
 # after 30 days.
-find "$(pwd)/.config/thorium/Crash Reports/pending/" -mtime +30 \
+find "$(pwd)/.config/roansbrowser/Crash Reports/pending/" -mtime +30 \
   \( -name "*.meta" -o -name "*.dmp" \) -exec rm \{\} \;
 
 # APPNAME for GTK.
-APPNAME=thorium
+APPNAME=roansbrowser
 
 # Set DESKTOP variable
-# DESKTOP="thorium-portable"
+# DESKTOP="roansbrowser-portable"
 
 # Set XDG Title variable
-TITLE="Thorium Portable"
+TITLE="RoansBrowser Portable"
 
 # Set the correct file name for the desktop file
-export CHROME_DESKTOP="thorium-portable.desktop"
+export CHROME_DESKTOP="roansbrowser-portable.desktop"
 
 # Set CHROME_VERSION_EXTRA text, which is displayed in the About dialog on chrome://help
 # DIST=`cat /etc/debian_version`
 export CHROME_VERSION_EXTRA="stable, (Portable)"
 
 # We don't want bug-buddy intercepting our crashes. http://crbug.com/24120
-export GNOME_DISABLE_CRASH_DIALOG=SET_BY_THORIUM
+export GNOME_DISABLE_CRASH_DIALOG=SET_BY_ROANSBROWSER
 
 # Set config home.
 XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$(pwd)/.config}
 
 usage () {
-  echo "thorium-browser [-h|--help] [--temp-profile] [options] [URL]"
+  echo "roansbrowser [-h|--help] [--temp-profile] [options] [URL]"
   echo
   echo "        -h, -help, or --help       This help screen"
   echo "        --temp-profile             Start with a new and temporary profile"
   echo "        --safe-mode                Disable all chrome://flags flags"
   echo
   echo " Other supported options are:"
-  MANWIDTH=80 man thorium-browser | sed -e '1,/OPTIONS/d; /ENVIRONMENT/,$d'
-  echo " See 'man thorium-browser' for more details"
+  MANWIDTH=80 man roansbrowser | sed -e '1,/OPTIONS/d; /ENVIRONMENT/,$d'
+  echo " See 'man roansbrowser' for more details"
 }
 
 want_temp_profile=0
@@ -95,8 +95,8 @@ while [ $# -gt 0 ]; do
 done
 
 # Allow users to override command-line options with a file.
-if [[ -f $XDG_CONFIG_HOME/thorium-flags.conf ]]; then
-   CHROME_USER_FLAGS="$(cat $XDG_CONFIG_HOME/thorium-flags.conf)"
+if [[ -f $XDG_CONFIG_HOME/roansbrowser-flags.conf ]]; then
+   CHROME_USER_FLAGS="$(cat $XDG_CONFIG_HOME/roansbrowser-flags.conf)"
 fi
 
 # Sanitize std{in,out,err} because they'll be shared with untrusted child
@@ -114,7 +114,7 @@ if [ $want_temp_profile -eq 1 ] ; then
   export CACHE
   CHROME_USER_FLAGS="$CHROME_USER_FLAGS --disk-cache-dir=$CACHE --user-data-dir=$TEMP_PROFILE"
 else
-  PROFILE="$HERE/.config/thorium"
+  PROFILE="$HERE/.config/roansbrowser"
   CACHE="$HERE/.config/cache"
   export PROFILE
   export CACHE
@@ -125,6 +125,6 @@ if [ $is_safe_mode -eq 1 ] ; then
   CHROME_USER_FLAGS="$CHROME_USER_FLAGS --no-experiments"
 fi
 
-# Launch Thorium
+# Launch RoansBrowser
 # Note: exec -a below is a bashism.
-exec -a "$0" "$HERE/thorium" "--disable-machine-id" "--disable-encryption" "--user-data-dir=$PROFILE" "--disk-cache-dir=$CACHE" $CHROME_USER_FLAGS "$@"
+exec -a "$0" "$HERE/roansbrowser" "--disable-machine-id" "--disable-encryption" "--user-data-dir=$PROFILE" "--disk-cache-dir=$CACHE" $CHROME_USER_FLAGS "$@"

@@ -50,7 +50,7 @@ def copy_directory(source_dir, destination_dir):
 
 # --help
 def display_help():
-    print("\nScript to copy Thorium source files over the Chromium source tree\n")
+    print("\nScript to copy RoansBrowser source files over the Chromium source tree\n")
     print("\nThis should be done AFTER running this setup.py\n")
     print("Use the --woa flag for Windows on ARM builds.")
     print("Use the --avx512 flag for AVX-512 Builds.")
@@ -67,23 +67,23 @@ if "--help" in sys.argv:
 
 # Set chromium/src dir from Windows environment variable
 cr_src_dir = os.getenv("CR_DIR", r"C:/src/chromium/src")
-# Set Thorium dir from Windows environment variable
+# Set RoansBrowser dir from Windows environment variable
 thor_src_dir = os.path.expandvars(
-    os.getenv("THOR_DIR", r"%USERPROFILE%/thorium"))
+    os.getenv("THOR_DIR", r"%USERPROFILE%/roansbrowser"))
 
 
 print("\nCreating build output directory...\n")
-os.makedirs(f"{cr_src_dir}/out/thorium/", exist_ok=True)
+os.makedirs(f"{cr_src_dir}/out/roansbrowser/", exist_ok=True)
 
-print("\nCopying thorium-libjxl source for JPEG-XL Support\n")
+print("\nCopying libjxl source for JPEG-XL Support\n")
 
 # Copy libjxl src
 copy_directory(
-    os.path.normpath(os.path.join(thor_src_dir, "thorium-libjxl/src/")),
+    os.path.normpath(os.path.join(thor_src_dir, "libjxl/src/")),
     os.path.normpath(os.path.join(cr_src_dir)),
 )
 
-print("\nCopying Thorium source files over the Chromium tree\n")
+print("\nCopying RoansBrowser source files over the Chromium tree\n")
 
 # Copy src/BUILD.gn
 copy(
@@ -91,8 +91,8 @@ copy(
     os.path.normpath(os.path.join(cr_src_dir)),
 )
 
-# Copy Thorium sources
-thorium_sources = [
+# Copy RoansBrowser sources
+roansbrowser_sources = [
     "src/ash",
     "src/build",
     "src/chrome",
@@ -111,7 +111,7 @@ thorium_sources = [
     "src/v8",
 ]
 
-for source in thorium_sources:
+for source in roansbrowser_sources:
     relative_path = source.replace("src/", "", 1)
     copy_directory(
         os.path.normpath(os.path.join(thor_src_dir, source)),
@@ -119,28 +119,28 @@ for source in thorium_sources:
     )
 
 copy_directory(
-    os.path.normpath(os.path.join(thor_src_dir, "thorium_shell")),
-    os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+    os.path.normpath(os.path.join(thor_src_dir, "roansbrowser_shell")),
+    os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
 )
 copy(
     os.path.normpath(os.path.join(thor_src_dir, "pak_src", "binaries", "pak")),
-    os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+    os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
 )
 copy_directory(
     os.path.normpath(os.path.join(
         thor_src_dir, "pak_src", "binaries", "pak-win")),
-    os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+    os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
 )
 
 
 patches = [
     "other/fix-policy-templates.patch",
-    "other/ftp-support-thorium.patch",
-    "other/thorium-2024-ui.patch",
+    "other/ftp-support-roansbrowser.patch",
+    "other/roansbrowser-2024-ui.patch",
     "other/GPC.patch",
     "other/mini_installer.patch",
     "other/open_in_same_tab.patch",
-    "other/thorium_webui.patch",
+    "other/roansbrowser_webui.patch",
     "other/disable-privacy-sandbox.patch",
     "other/win_updater.patch",
     "other/keyboard_shortcuts.patch",
@@ -197,7 +197,7 @@ try_run(f"git apply --reject fix-policy-templates.patch")
 print("\nPatching FTP support\n")
 # Change directory to cr_src_dir and run commands
 os.chdir(cr_src_dir)
-try_run(f"git apply --reject ftp-support-thorium.patch")
+try_run(f"git apply --reject ftp-support-roansbrowser.patch")
 
 
 print("\nPatching in GPC support\n")
@@ -206,10 +206,10 @@ os.chdir(cr_src_dir)
 try_run(f"git apply --reject GPC.patch")
 
 
-print("\nPatching for Thorium 2024 UI\n")
+print("\nPatching for RoansBrowser 2024 UI\n")
 # Change directory to cr_src_dir and run commands
 os.chdir(cr_src_dir)
-try_run(f"git apply --reject thorium-2024-ui.patch")
+try_run(f"git apply --reject roansbrowser-2024-ui.patch")
 
 
 print("\nPatching for mini_installer\n")
@@ -234,7 +234,7 @@ print("\nApplying other Misc. patches...\n")
 # Change directory to cr_src_dir and run commands
 os.chdir(cr_src_dir)
 try_run(f"git apply --reject open_in_same_tab.patch")
-try_run(f"git apply --reject thorium_webui.patch")
+try_run(f"git apply --reject roansbrowser_webui.patch")
 try_run(f"git apply --reject win_updater.patch")
 try_run(f"git apply --reject disable-privacy-sandbox.patch")
 try_run(f"git apply --reject keyboard_shortcuts.patch")
@@ -256,22 +256,22 @@ try_run(f"git apply --reject fix_wayland_scale_crash.patch")
 try_run(f"git apply --reject fix_setting_popover_invoker_crash.patch")
 
 
-print("\nCopying other files to out/thorium\n")
+print("\nCopying other files to out/roansbrowser\n")
 # Copying additional files
-os.makedirs(f"{cr_src_dir}/out/thorium/default_apps", exist_ok=True)
+os.makedirs(f"{cr_src_dir}/out/roansbrowser/default_apps", exist_ok=True)
 copy_directory(
     os.path.normpath(os.path.join(thor_src_dir, "infra", "default_apps")),
     os.path.normpath(os.path.join(
-        cr_src_dir, "out", "thorium", "default_apps")),
+        cr_src_dir, "out", "roansbrowser", "default_apps")),
 )
 copy(
     os.path.normpath(os.path.join(
         thor_src_dir, "infra", "initial_preferences")),
-    os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+    os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
 )
 copy(
     os.path.normpath(os.path.join(thor_src_dir, "infra", "thor_ver")),
-    os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+    os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
 )
 
 flags_to_check = ["--woa", "--avx512", "--avx2", "--sse4", "--sse3", "--sse2"]
@@ -305,7 +305,7 @@ def copy_woa():
         os.path.normpath(os.path.join(cr_src_dir, "third_party")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "arm", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "arm", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -336,10 +336,10 @@ def copy_avx512():
     copy(
         os.path.normpath(os.path.join(
             thor_src_dir, "other", "AVX512", "thor_ver")),
-        os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+        os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "other", "AVX512", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "other", "AVX512", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -370,10 +370,10 @@ def copy_avx2():
     copy(
         os.path.normpath(os.path.join(
             thor_src_dir, "other", "AVX2", "thor_ver")),
-        os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+        os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "other", "AVX2", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "other", "AVX2", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -399,10 +399,10 @@ def copy_sse4():
     copy(
         os.path.normpath(os.path.join(
             thor_src_dir, "other", "SSE4.1", "thor_ver")),
-        os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+        os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE4.1", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE4.1", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -428,10 +428,10 @@ def copy_sse3():
     copy(
         os.path.normpath(os.path.join(
             thor_src_dir, "other", "SSE3", "thor_ver")),
-        os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+        os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE3", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE3", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -462,10 +462,10 @@ def copy_sse2():
     copy(
         os.path.normpath(os.path.join(
             thor_src_dir, "other", "SSE2", "thor_ver")),
-        os.path.normpath(os.path.join(cr_src_dir, "out", "thorium")),
+        os.path.normpath(os.path.join(cr_src_dir, "out", "roansbrowser")),
     )
     copy(
-        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE2", "thorium_version.txt")),
+        os.path.normpath(os.path.join(thor_src_dir, "other", "SSE2", "roansbrowser_version.txt")),
         os.path.normpath(os.path.join(cr_src_dir, "ui", "webui", "resources", "text")),
     )
     os.chdir(cr_src_dir)
@@ -500,4 +500,4 @@ if "--sse2" in sys.argv:
 
 
 print("\nDone!\n")
-print("\nEnjoy Thorium!\n")
+print("\nEnjoy RoansBrowser!\n")

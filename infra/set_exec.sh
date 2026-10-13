@@ -16,7 +16,7 @@ die() { yell "$*"; exit 111; }
 try() { "$@" || die "${RED}Failed $*"; }
 
 printf "\n" &&
-printf "${GRE}Script to set chmod +x on all other Thorium scripts.\n" &&
+printf "${GRE}Script to set chmod +x on all other RoansBrowser scripts.\n" &&
 tput sgr0 &&
 printf "${BOLD}\n" &&
 
@@ -79,19 +79,19 @@ sudo chmod -v +x infra/DEBUG/build_debug_shell_win.sh &&
 
 sudo chmod -v +x infra/DEBUG/build_debug_win.sh &&
 
-sudo chmod -v +x infra/DEBUG/Thorium_Debug_Shell.sh &&
+sudo chmod -v +x infra/DEBUG/RoansBrowser_Debug_Shell.sh &&
 
 sudo chmod -v +x logos/NEW/mac/gen/app/build_icns.sh &&
 
 sudo chmod -v +x logos/NEW/mac/gen/document/build_icns.sh &&
 
-sudo chmod -v +x infra/portable/THORIUM-PORTABLE &&
+sudo chmod -v +x infra/portable/ROANSBROWSER-PORTABLE &&
 
-sudo chmod -v +x infra/portable/THORIUM-SHELL &&
+sudo chmod -v +x infra/portable/ROANSBROWSER-SHELL &&
 
-sudo chmod -v +x infra/portable/thorium-portable.desktop &&
+sudo chmod -v +x infra/portable/roansbrowser-portable.desktop &&
 
-sudo chmod -v +x infra/portable/thorium-shell.desktop &&
+sudo chmod -v +x infra/portable/roansbrowser-shell.desktop &&
 
 sudo chmod -v +x infra/portable/make_portable_linux.sh &&
 

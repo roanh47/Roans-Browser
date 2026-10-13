@@ -2,7 +2,7 @@
 
 ## Copyright (c) 2026 Alex313031.
 
-## Clones current LLVM being used by the Chromium Project, and builds a local LLVM toolchain with Polly to use the Polly optimizations in the main Thorium BUILD.gn
+## Clones current LLVM being used by the Chromium Project, and builds a local LLVM toolchain with Polly to use the Polly optimizations in the main RoansBrowser BUILD.gn
 
 YEL='\033[1;33m' # Yellow
 CYA='\033[1;96m' # Cyan
@@ -32,7 +32,7 @@ displayHelp () {
 	python3 tools/clang/scripts/build.py --help &&
 	printf "\n" &&
 	printf "${bold}${GRE}Script to clone the latest LLVM being used by the Chromium Project, and builds a local ${c0}\n" &&
-	printf "${bold}${GRE}LLVM toolchain with Polly to use the Polly optimizations in the main Thorium BUILD.gn${c0}\n" &&
+	printf "${bold}${GRE}LLVM toolchain with Polly to use the Polly optimizations in the main RoansBrowser BUILD.gn${c0}\n" &&
 	printf "${bold}${YEL}Use the --pgo flag to build LLVM with PGO.${c0}\n" &&
 	printf "${bold}${YEL}Use the --jobs or -j flag to set the number of jobs (should be less or equal to the number of CPU cores).${c0}\n" &&
 	printf "${bold}${YEL}Use the --verbose or -v flag to make Ninja show verbose commands.${c0}\n" &&
@@ -75,7 +75,7 @@ esac
 
 printf "\n" &&
 printf "${bold}${GRE}Clones latest LLVM being used by the Chromium Project, and builds a local LLVM toolchain with Polly ${c0}\n" &&
-printf "${bold}${GRE}to use the Polly optimizations in the main Thorium BUILD.gn${c0}\n" &&
+printf "${bold}${GRE}to use the Polly optimizations in the main RoansBrowser BUILD.gn${c0}\n" &&
 printf "${bold}${YEL}Use the --pgo flag to build LLVM with PGO.${c0}\n" &&
 printf "${bold}${YEL}Use the --jobs or -j flag to set the number of jobs (should be less or equal to the number of CPU cores)${c0}\n" &&
 printf "${bold}${YEL}Use the --verbose or -v flag to make Ninja show verbose commands.${c0}\n" &&

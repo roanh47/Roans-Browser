@@ -421,8 +421,8 @@ if (is_debug) {
   default_compiler_configs += [ "//build/config:release" ]
 }
 
-# Make sure Thorium SIMD flags come last
-default_compiler_configs += [ "//build/config/compiler:thorium_simd_optimization", ]
+# Make sure RoansBrowser SIMD flags come last
+default_compiler_configs += [ "//build/config/compiler:roansbrowser_simd_optimization", ]
 
 # Static libraries and source sets use only the compiler ones.
 set_defaults("static_library") {

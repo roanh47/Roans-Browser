@@ -2,7 +2,7 @@
 
 # Copyright (c) 2026 Alex313031.
 
-# Simply uses wget to fetch Thorium API Keys.
+# Simply uses wget to fetch RoansBrowser API Keys.
 # This is to keep them out of the main repo, in the case Google
 # wants to crack down on distributing them.
 

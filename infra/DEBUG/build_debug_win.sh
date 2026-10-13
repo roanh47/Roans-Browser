@@ -18,7 +18,7 @@ try() { "$@" || die "${RED}Failed $*"; }
 # --help
 displayHelp () {
 	printf "\n" &&
-	printf "${bold}${YEL}Script to build Thorium DEBUG for Windows on Linux.${c0}\n" &&
+	printf "${bold}${YEL}Script to build RoansBrowser DEBUG for Windows on Linux.${c0}\n" &&
 	printf "${underline}Usage: ${c0}build_debug_win.sh # (where # is number of jobs)\n" &&
 	printf "\n"
 }
@@ -27,45 +27,45 @@ case $1 in
 esac
 
 printf "\n" &&
-printf "${YEL}Building Thorium DEBUG for Windows...\n" &&
+printf "${YEL}Building RoansBrowser DEBUG for Windows...\n" &&
 printf "${CYA}\n" &&
 
-# Build Thorium and Thorium UI Debug Shell
+# Build RoansBrowser and RoansBrowser UI Debug Shell
 export NINJA_SUMMARIZE_BUILD=1 &&
 
-autoninja -C ~/chromium/src/out/thorium chrome chromedriver thorium_shell setup mini_installer thorium_ui_debug_shell clear_key_cdm -j$@ &&
+autoninja -C ~/chromium/src/out/roansbrowser chrome chromedriver roansbrowser_shell setup mini_installer roansbrowser_ui_debug_shell clear_key_cdm -j$@ &&
 
-mkdir -v -p ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell &&
-mkdir -v -p ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
+mkdir -v -p ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell &&
+mkdir -v -p ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
 
-cp -r -f -v ./icons/icon_16.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_24.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_32.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_48.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_64.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_128.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/icon_256.png ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/icons &&
-cp -r -f -v ./icons/thorium_debug_shell.ico ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell &&
-cp -r -f -v DEBUG_SHELL_README.md ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/README.md &&
-cp -r -f -v ~/chromium/src/out/thorium/locales ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/test_fonts ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/resources ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/ui ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/blink_test_plugin.dll ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/icudtl.dat ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/content_resources.pak ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/libEGL.dll ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/libGLESv2.dll ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/vk_swiftshader.dll ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/vulkan-1.dll ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/vk_swiftshader_icd.json ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/v8_context_snapshot.bin ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/v8_context_snapshot_generator ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/ui_resources_100_percent.pak ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/ui_test.pak ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/ui_test_200_percent.pak ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/views_examples_resources.pak ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
-cp -r -f -v ~/chromium/src/out/thorium/thorium_ui_debug_shell.exe ~/chromium/src/out/thorium/Thorium_UI_Debug_Shell/ &&
+cp -r -f -v ./icons/icon_16.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_24.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_32.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_48.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_64.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_128.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/icon_256.png ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/icons &&
+cp -r -f -v ./icons/roansbrowser_debug_shell.ico ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell &&
+cp -r -f -v DEBUG_SHELL_README.md ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/README.md &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/locales ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/test_fonts ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/resources ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/ui ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/blink_test_plugin.dll ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/icudtl.dat ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/content_resources.pak ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/libEGL.dll ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/libGLESv2.dll ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/vk_swiftshader.dll ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/vulkan-1.dll ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/vk_swiftshader_icd.json ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/v8_context_snapshot.bin ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/v8_context_snapshot_generator ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/ui_resources_100_percent.pak ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/ui_test.pak ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/ui_test_200_percent.pak ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/views_examples_resources.pak ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
+cp -r -f -v ~/chromium/src/out/roansbrowser/roansbrowser_ui_debug_shell.exe ~/chromium/src/out/roansbrowser/RoansBrowser_UI_Debug_Shell/ &&
 
 printf "\n" &&
 printf "${GRE}Debug Windows Build Completed.\n" &&

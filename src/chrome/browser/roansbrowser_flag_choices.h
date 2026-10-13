@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef CHROME_BROWSER_THORIUM_FLAG_CHOICES_H_
-#define CHROME_BROWSER_THORIUM_FLAG_CHOICES_H_
+#ifndef CHROME_BROWSER_ROANSBROWSER_FLAG_CHOICES_H_
+#define CHROME_BROWSER_ROANSBROWSER_FLAG_CHOICES_H_
 
 const FeatureEntry::Choice kCustomTabWidthChoices[] = {
     {flags_ui::kGenericExperimentChoiceDefault, "", ""},
@@ -177,4 +177,4 @@ const FeatureEntry::Choice kPasswordStoreChoices[] = {
 };
 #endif // BUILDFLAG(IS_LINUX)
 
-#endif  // CHROME_BROWSER_THORIUM_FLAG_CHOICES_H_
+#endif  // CHROME_BROWSER_ROANSBROWSER_FLAG_CHOICES_H_

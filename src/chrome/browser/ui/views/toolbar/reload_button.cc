@@ -41,9 +41,9 @@ ReloadButton::ReloadButton(CommandUpdater* command_updater)
                     CreateMenuModel(),
                     nullptr),
       command_updater_(command_updater),
-      reload_icon_(disable_thorium_icons
+      reload_icon_(disable_roansbrowser_icons
                    ? vector_icons::kReloadChromeRefreshIcon
-                   : vector_icons::kReloadChromeRefreshThoriumIcon),
+                   : vector_icons::kReloadChromeRefreshRoansBrowserIcon),
       reload_touch_icon_(kReloadTouchIcon),
       stop_icon_(kNavigateStopChromeRefreshIcon),
       stop_touch_icon_(kNavigateStopTouchIcon),

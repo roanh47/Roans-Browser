@@ -48,7 +48,7 @@ BASE_FEATURE(kAvoidTrustedParamsCopies,
              base::FEATURE_DISABLED_BY_DEFAULT);
 
 // Block all MIDI access with the MIDI_SYSEX permission
-// Allow MIDI for Thorium Legacy
+// Allow MIDI for RoansBrowser Legacy
 BASE_FEATURE(kBlockMidiByDefault,
              "BlockMidiByDefault",
              base::FEATURE_DISABLED_BY_DEFAULT);
@@ -862,7 +862,7 @@ BASE_FEATURE_PARAM(std::string,
 
 // See https://github.com/WICG/turtledove/blob/main/FLEDGE.md
 // Enables FLEDGE implementation. See https://crbug.com/1186444.
-// Disabled in Thorium
+// Disabled in RoansBrowser
 BASE_FEATURE(kFledge, "Fledge", base::FEATURE_DISABLED_BY_DEFAULT);
 
 // See

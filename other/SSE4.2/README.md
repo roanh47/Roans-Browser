@@ -1,6 +1,6 @@
-# Thorium SSE4.2
+# Roan's Browser SSE4.2
 
-This directory contains build config files for compiling Thorium/Chromium with [SSE4.2](https://en.wikipedia.org/wiki/SSE4#SSE4.2).
+This directory contains build config files for compiling Roan's Browser/Chromium with [SSE4.2](https://en.wikipedia.org/wiki/SSE4#SSE4.2).
 
 SSE4.2 is used to target 1st Gen core i series systems at a minimum.
 

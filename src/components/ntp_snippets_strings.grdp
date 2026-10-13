@@ -30,13 +30,13 @@
 
   <if expr="use_titlecase">
     <message name="IDS_NTP_READING_LIST_SUGGESTIONS_SECTION_HEADER" desc="Header of the Reading List section. The Reading List section shows a list of unread pages from the Reading List.">
-      Thorium Reading List
+      Roan's Browser Reading List
     </message>
   </if>
 
   <if expr="not use_titlecase">
     <message name="IDS_NTP_READING_LIST_SUGGESTIONS_SECTION_HEADER" desc="Header of the Reading List section. The Reading List section shows a list of unread pages from the Reading List.">
-      Thorium Reading list
+      Roan's Browser Reading list
     </message>
   </if>
 

@@ -1,0 +1,1 @@
+START "" "%cd%\BIN\138.0.7204.306\roansbrowser_shell.exe" --user-data-dir="%~dp0%\USER_DATA\roansbrowser_shell" --allow-outdated-plugins --disable-logging --disable-breakpad --enable-experimental-web-platform-features --disable-encryption --disable-machine-id

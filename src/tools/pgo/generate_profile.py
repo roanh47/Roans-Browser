@@ -103,7 +103,7 @@ def main():
     # See also https://crbug.com/1478279
     builddir = os.path.realpath(args.builddir)
     if sys.platform == 'darwin':
-        chrome_path = f'{builddir}/Thorium.app/Contents/MacOS/Thorium'
+        chrome_path = f'{builddir}/RoansBrowser.app/Contents/MacOS/RoansBrowser'
     elif args.android_browser:
         chrome_path = None
         if not args.android_device_path:
@@ -116,7 +116,7 @@ def main():
             args.android_device_path = (
                 f'/data/data/{package}/cache/pgo_profiles')
     else:
-        chrome_path = f'{builddir}/thorium' + exe_ext
+        chrome_path = f'{builddir}/roansbrowser' + exe_ext
     profiledir = f'{builddir}/profile'
 
     def run_benchmark(benchmark_args):

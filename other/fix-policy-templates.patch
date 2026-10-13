@@ -65,41 +65,41 @@ index 283ea725c5..86bd75c692 100755
    else:
 -    raise Exception('Unknown build')
 +    config = {
-+        'build': 'thorium',
-+        'app_name': 'Thorium',
++        'build': 'roansbrowser',
++        'app_name': 'RoansBrowser',
 +        'doc_url': 'https://chromeenterprise.google/policies/',
-+        'frame_name': 'Thorium Frame',
-+        'os_name': 'ThoriumOS',
-+        'webview_name': 'Thorium WebView',
++        'frame_name': 'RoansBrowser Frame',
++        'os_name': 'RoansBrowserOS',
++        'webview_name': 'RoansBrowser WebView',
 +        'win_config': {
 +            'win': {
-+                'reg_mandatory_key_name': 'Software\\Policies\\Thorium',
++                'reg_mandatory_key_name': 'Software\\Policies\\RoansBrowser',
 +                'reg_recommended_key_name':
-+                'Software\\Policies\\Thorium\\Recommended',
++                'Software\\Policies\\RoansBrowser\\Recommended',
 +                'mandatory_category_path': ['chromium'],
 +                'recommended_category_path': ['chromium_recommended'],
 +                'category_path_strings': {
-+                    'chromium': 'Thorium',
-+                    'chromium_recommended': 'Thorium - {doc_recommended}',
++                    'chromium': 'RoansBrowser',
++                    'chromium_recommended': 'RoansBrowser - {doc_recommended}',
 +                },
-+                'namespace': 'Chromium.Policies.Thorium',
++                'namespace': 'Chromium.Policies.RoansBrowser',
 +            },
 +            'chrome_os': {
-+                'reg_mandatory_key_name': 'Software\\Policies\\ThoriumOS',
++                'reg_mandatory_key_name': 'Software\\Policies\\RoansBrowserOS',
 +                'reg_recommended_key_name':
-+                'Software\\Policies\\ThoriumOS\\Recommended',
++                'Software\\Policies\\RoansBrowserOS\\Recommended',
 +                'mandatory_category_path': ['chromium_os'],
 +                'recommended_category_path': ['chromium_os_recommended'],
 +                'category_path_strings': {
-+                    'chromium_os': 'ThoriumOS',
-+                    'chromium_os_recommended': 'ThoriumOS - {doc_recommended}',
++                    'chromium_os': 'RoansBrowserOS',
++                    'chromium_os_recommended': 'RoansBrowserOS - {doc_recommended}',
 +                },
-+                'namespace': 'Chromium.Policies.ThoriumOS'
++                'namespace': 'Chromium.Policies.RoansBrowserOS'
 +            },
 +        },
-+        'admx_prefix': 'thorium',
-+        'linux_policy_path': '/etc/thorium/policies/',
-+        'bundle_id': 'org.chromium.Thorium',
++        'admx_prefix': 'roansbrowser',
++        'linux_policy_path': '/etc/roansbrowser/policies/',
++        'bundle_id': 'org.chromium.RoansBrowser',
 +    }
    if 'version' in defines:
      config['version'] = defines['version']

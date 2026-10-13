@@ -52,7 +52,7 @@ if (current_cpu == "x86" || current_cpu == "x64") {
 }
 
 packaging_files_executables = [
-  "$root_out_dir/thorium",
+  "$root_out_dir/roansbrowser",
   "$root_out_dir/chrome_crashpad_handler",
   "$root_out_dir/chrome_management_service",
   "$root_out_dir/chrome_sandbox",
@@ -183,7 +183,7 @@ action("merge_rpm_dependencies") {
 }
 
 strip_binary("strip_chrome_binary") {
-  binary_input = "$root_out_dir/thorium"
+  binary_input = "$root_out_dir/roansbrowser"
   deps = [ "//chrome" ]
 }
 
@@ -354,7 +354,7 @@ if (!is_chromeos) {
     visibility = [ ":*" ]
     sources = [
       "rpm/build.sh",
-      "rpm/thorium.spec.template",
+      "rpm/roansbrowser.spec.template",
     ]
     outputs = [ "$root_out_dir/installer/rpm/{{source_file_part}}" ]
   }
@@ -451,7 +451,7 @@ template("linux_package") {
   if (is_chrome_branded) {
     package = "google-chrome"
   } else {
-    package = "thorium-browser"
+    package = "roansbrowser"
   }
 
   deb_target_name = "${target_name}_deb"

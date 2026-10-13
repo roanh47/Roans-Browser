@@ -91,8 +91,8 @@ if (is_official_build) {
 # `all`, and no tooling should depend directly on this target. Tools should
 # should depend on either an explicit list of targets, or `all`.
 
-# Thorium target that simply pulls in the chrome target as a dependency
-group("thorium") {
+# RoansBrowser target that simply pulls in the chrome target as a dependency
+group("roansbrowser") {
   if (!is_android) {
     public_deps = [ "//chrome:chrome" ]
   } else {
@@ -104,12 +104,12 @@ group("thorium") {
   }
 
   if (is_linux || is_chromeos || is_win || is_mac || is_android) {
-    public_deps += [ ":thorium_sandbox" ]
+    public_deps += [ ":roansbrowser_sandbox" ]
   }
 }
 
 # Simply to rename the sandbox target
-group("thorium_sandbox") {
+group("roansbrowser_sandbox") {
   if (is_linux || is_chromeos) {
     public_deps = [ "//sandbox/linux:chrome_sandbox" ]
   } else if (is_win) {
@@ -120,9 +120,9 @@ group("thorium_sandbox") {
 }
 
 # Target to build platform specific installers.
-group("thorium_installer") {
+group("roansbrowser_installer") {
   testonly = true
-  deps = [ ":thorium_all" ]
+  deps = [ ":roansbrowser_all" ]
   public_deps = [ "//chrome/installer/util:constants" ]
   if (is_win) {
     public_deps += [
@@ -138,22 +138,22 @@ group("thorium_installer") {
   }
 }
 
-# Thorium target that builds everything for a release build
+# RoansBrowser target that builds everything for a release build
 # according to the platform
-group("thorium_all") {
+group("roansbrowser_all") {
   testonly = true
 
-  deps = [ ":thorium" ]
+  deps = [ ":roansbrowser" ]
 
   if (is_win || is_linux || is_mac) {
     deps += [
       "//chrome/test/chromedriver:chromedriver",
       "//components/policy:policy_templates",
-      "//content/shell:thorium_shell",
+      "//content/shell:roansbrowser_shell",
       "//media/cdm/library_cdm/clear_key_cdm:clear_key_cdm"
     ]
     if (is_debug) {
-      deps += [ "//ui/views/examples:thorium_ui_debug_shell" ]
+      deps += [ "//ui/views/examples:roansbrowser_ui_debug_shell" ]
     }
   }
 
@@ -310,7 +310,7 @@ group("gn_all") {
         "//components/viz:viz_perftests",
         "//components/viz:viz_unittests",
         "//content/browser/interest_group/tools:adjustable_auction",
-        "//content/shell:thorium_shell",
+        "//content/shell:roansbrowser_shell",
         "//content/test:content_browsertests",
         "//content/test:content_unittests",
         "//device:device_unittests",
@@ -432,7 +432,7 @@ group("gn_all") {
         "//ui/views:views_unittests",
         "//ui/views/examples:views_examples",
         "//ui/views/examples:views_examples_unittests",
-        "//ui/views/examples:thorium_ui_debug_shell",
+        "//ui/views/examples:roansbrowser_ui_debug_shell",
       ]
     }
 
@@ -1333,7 +1333,7 @@ if (use_blink && !is_cronet_build) {
     data_deps = [
       ":layout_test_data_mojo_bindings",
       ":layout_test_data_mojo_bindings_lite",
-      "//content/shell:thorium_shell",
+      "//content/shell:roansbrowser_shell",
       "//content/test:mojo_bindings_web_test_mojom_js_data_deps",
       "//content/test:mojo_web_test_bindings_js_data_deps",
       "//device/bluetooth/public/mojom:fake_bluetooth_interfaces_js_data_deps",
@@ -1878,7 +1878,7 @@ if (!is_ios && !is_android && !is_castos && !is_cronet_build) {
     testonly = true
 
     deps = [
-      "//content/shell:thorium_shell",
+      "//content/shell:roansbrowser_shell",
       "//third_party/blink/public/mojom:mojom_modules_js",
       "//v8:d8",
     ]

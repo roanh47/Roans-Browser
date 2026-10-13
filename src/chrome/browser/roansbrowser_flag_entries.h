@@ -2,8 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#ifndef CHROME_BROWSER_THORIUM_FLAG_ENTRIES_H_
-#define CHROME_BROWSER_THORIUM_FLAG_ENTRIES_H_
+#ifndef CHROME_BROWSER_ROANSBROWSER_FLAG_ENTRIES_H_
+#define CHROME_BROWSER_ROANSBROWSER_FLAG_ENTRIES_H_
 
     {"force-dark-mode",
      "Enable Dark Mode",
@@ -13,15 +13,15 @@
 #if BUILDFLAG(IS_LINUX)
     {"auto-dark-mode",
      "GTK Auto Dark Mode",
-     "Enables Thorium to automatically change to Dark Mode according to the system GTK Theme.",
+     "Enables RoansBrowser to automatically change to Dark Mode according to the system GTK Theme.",
      kOsLinux, SINGLE_VALUE_TYPE("auto-dark-mode")},
 #endif // BUILDFLAG(IS_LINUX)
 
-    {"thorium-2024",
-     "Enable Experimental Thorium 2024 (Th24) UI",
+    {"roansbrowser-2024",
+     "Enable Experimental RoansBrowser 2024 (Th24) UI",
      "Enable a new \"hybrid\" UI, which restores many parts of the pre-Chrome Refresh 2023 UI. Good for people "
      "who find the new UI ugly or harder to use.",
-     kOsDesktop, FEATURE_VALUE_TYPE(features::kThorium2024)},
+     kOsDesktop, FEATURE_VALUE_TYPE(features::kRoansBrowser2024)},
     {"restore-tab-button",
      "Restore Tab Button",
      "Enable a new toolbar button to restore your recently closed tabs.",
@@ -32,15 +32,15 @@
      kOsDesktop, SINGLE_VALUE_TYPE("prominent-active-tab-titles")},
     {"force-disable-tab-outlines",
      "Disable Tab Outlines",
-     "Force disables tab outline strokes. Thorium enables them by default, improving accessiblity in dark mode, incognito mode, and low contrast themes.",
+     "Force disables tab outline strokes. RoansBrowser enables them by default, improving accessiblity in dark mode, incognito mode, and low contrast themes.",
      kOsDesktop, SINGLE_VALUE_TYPE("force-disable-tab-outlines")},
-    {"disable-thorium-icons",
-     "Disable Thorium Top Bar Icons",
-     "Disables the custom colored top bar icons in Thorium, and restores the default grey Chromium icon colors.",
-     kOsDesktop, SINGLE_VALUE_TYPE("disable-thorium-icons")},
+    {"disable-roansbrowser-icons",
+     "Disable RoansBrowser Top Bar Icons",
+     "Disables the custom colored top bar icons in RoansBrowser, and restores the default grey Chromium icon colors.",
+     kOsDesktop, SINGLE_VALUE_TYPE("disable-roansbrowser-icons")},
     {"left-aligned-tab-search-button",
      "Left Aligned Tab Search Button",
-     "The default placement of the tab search button was changed to the left of the tabstrip in M125, but Thorium has reverted this back "
+     "The default placement of the tab search button was changed to the left of the tabstrip in M125, but RoansBrowser has reverted this back "
      "to the original righthand placement. This flag is for people who want the new CR23 left aligned behavior.",
      kOsDesktop, SINGLE_VALUE_TYPE("left-aligned-tab-search-button")},
     {"remove-tabsearch-button",
@@ -61,13 +61,13 @@
      "Changes the omnibox shape to be more square.",
      kOsDesktop, SINGLE_VALUE_TYPE("classic-omnibox")},
     {"rectangular-tabs",
-     "Thorium Rectangular Tabs UI",
+     "RoansBrowser Rectangular Tabs UI",
      "Changes the look of browser tabs to appear with a rectangular shape, similar to Vivaldi or Cent Browser.",
      kOsDesktop, SINGLE_VALUE_TYPE("rectangular-tabs")},
 
 //#if BUILDFLAG(IS_WIN)
     //{"transparent-tabs",
-     //"Thorium Semi-Transparent Tabs UI",
+     //"RoansBrowser Semi-Transparent Tabs UI",
      //"Reduces the opacity of tabs.",
      //kOsWin, SINGLE_VALUE_TYPE("transparent-tabs")},
 //#endif // BUILDFLAG(IS_WIN)
@@ -76,11 +76,11 @@
      "Custom Tab Width",
      "Allows setting the default tab width, in DIP. Normally 1 DIP = 1 Pixel, and the standard width for tabs is 240.",
      kOsAll, MULTI_VALUE_TYPE(kCustomTabWidthChoices)},
-    {"disable-thorium-dns-config",
-     "Disable Thorium Custom DNS Config",
-     "Disables the custom DNS configuration used by default in Thorium. Useful when this config breaks something, "
+    {"disable-roansbrowser-dns-config",
+     "Disable RoansBrowser Custom DNS Config",
+     "Disables the custom DNS configuration used by default in RoansBrowser. Useful when this config breaks something, "
      "due to external apps or a non-standard system DNS config setting.",
-     kOsDesktop, SINGLE_VALUE_TYPE("disable-thorium-dns-config")},
+     kOsDesktop, SINGLE_VALUE_TYPE("disable-roansbrowser-dns-config")},
     //{"side-panel-journeys",
      //"Side Panel Journeys",
      //"Enables Journeys within the Side Panel.",
@@ -100,7 +100,7 @@
 
     {"force-high-contrast",
      "Enable High Contrast Mode",
-     "Enables high contrast mode for all Thorium instances.",
+     "Enables high contrast mode for all RoansBrowser instances.",
      kOsDesktop, SINGLE_VALUE_TYPE(switches::kForceHighContrast)},
 
 #if BUILDFLAG(IS_WIN)
@@ -143,7 +143,7 @@
 #if !BUILDFLAG(IS_ANDROID)
     {"download-shelf",
      "Restore Download Shelf",
-     "When enabled, the traditional download shelf is used instead of the download bubble in the toolbar. Thorium flag",
+     "When enabled, the traditional download shelf is used instead of the download bubble in the toolbar. RoansBrowser flag",
      kOsDesktop, FEATURE_VALUE_TYPE(features::kDownloadShelf)},
 #endif // BUILDFLAG(IS_ANDROID)
 
@@ -153,7 +153,7 @@
      kOsDesktop, MULTI_VALUE_TYPE(kShowAvatarButtonChoices)},
     {"keep-all-history",
      "Keep All History",
-     "Retain All local browsing history. By default history older than 4 months is expired and purged. Thorium flag",
+     "Retain All local browsing history. By default history older than 4 months is expired and purged. RoansBrowser flag",
      kOsAll, SINGLE_VALUE_TYPE("keep-all-history")},
     {"webgl-msaa-sample-count",
      "WebGL MSAA Sample Count",
@@ -184,7 +184,7 @@
     {"vaapi-video-decode-linux-gl",
      "GL Vaapi Video Decode",
      "Toggle whether the GL backend is used for VAAPI video decode acceleration. "
-     "Enabled by default, but may break some configurations. Thorium flag.",
+     "Enabled by default, but may break some configurations. RoansBrowser flag.",
      kOsLinux, FEATURE_VALUE_TYPE(media::kAcceleratedVideoDecodeLinuxGL)},
     {"touchpad-overscroll-history-navigation",
      "Touchpad Overscroll History Navigation",
@@ -198,13 +198,13 @@
     {"vaapi-on-nvidia-gpus",
      "VAAPI on nVidia GPUs",
      "Toggle whether VAAPI is enabled when proprietary nVidia Drivers are installed. "
-     "Requires `vdpau-va-driver` to be installed, and can be buggy. Thorium flag.",
+     "Requires `vdpau-va-driver` to be installed, and can be buggy. RoansBrowser flag.",
      kOsLinux, FEATURE_VALUE_TYPE(media::kVaapiOnNvidiaGPUs)},
 #endif // BUILDFLAG(IS_LINUX)
 
     {"gpu-no-context-lost",
      "No GPU Context Lost",
-     "Inform Thorium's GPU process that a GPU context will not be lost in power saving mode, screen saving mode, etc. "
+     "Inform RoansBrowser's GPU process that a GPU context will not be lost in power saving mode, screen saving mode, etc. "
      "Note that this flag does not ensure that a GPU context will never be lost in any situation, like say, a GPU reset. "
      "Useful for fixing blank or pink screens/videos upon system resume, etc.",
      kOsDesktop, SINGLE_VALUE_TYPE(switches::kGpuNoContextLost)},
@@ -232,7 +232,7 @@
 #if !BUILDFLAG(IS_ANDROID)
     {"media-router",
      "Enable/Disable Media Router",
-     "Media router is a component responsible for pairing Thorium to devices and endpoints, "
+     "Media router is a component responsible for pairing RoansBrowser to devices and endpoints, "
      "for streaming and rendering media sources on those devices. This is used, for example, for Cast.",
      kOsDesktop, FEATURE_VALUE_TYPE(media_router::kMediaRouter)},
 #endif // BUILDFLAG(IS_ANDROID)
@@ -260,15 +260,15 @@
     {"disable-encryption",
      "Disable Encryption",
      "Disable encryption of cookies, passwords, and settings which normally uses a generated machine-specific encryption key. "
-     "This is used to enable portable user data directories. Enabled for Thorium Portable.",
+     "This is used to enable portable user data directories. Enabled for RoansBrowser Portable.",
      kOsDesktop, SINGLE_VALUE_TYPE("disable-encryption")},
     {"disable-machine-id",
      "Disable Machine ID",
-     "Disables use of a generated machine-specific ID to lock the user data directory to that machine. This is used to enable portable user data directories. Enabled for Thorium Portable.",
+     "Disables use of a generated machine-specific ID to lock the user data directory to that machine. This is used to enable portable user data directories. Enabled for RoansBrowser Portable.",
      kOsDesktop, SINGLE_VALUE_TYPE("disable-machine-id")},
     {"revert-from-portable",
      "Prevent Data Loss When Changing User Profile Portable State",
-     "When moving a Thorium user profile from one drive to another (or one system to another), enable this flag before moving the profile directory. It should also be used "
+     "When moving a RoansBrowser user profile from one drive to another (or one system to another), enable this flag before moving the profile directory. It should also be used "
      "when migrating a portable profile back to a normal, non-portable profile (i.e. when disabling the `chrome://flags#disable-encryption` and/or the `chrome://flags#disable-machine-id` flags "
      "after being previously enabled). This mostly ensures that extensions, extension data, and some other data are not lost during the migration. When you are done migrating, the flag should be "
      "reset back to the default (Disabled).",
@@ -291,6 +291,6 @@
      kOsWin, SINGLE_VALUE_TYPE(switches::kEnableExclusiveAudio)},
 #endif // BUILDFLAG(IS_WIN)
 
-#endif  // CHROME_BROWSER_THORIUM_FLAG_ENTRIES_H_
+#endif  // CHROME_BROWSER_ROANSBROWSER_FLAG_ENTRIES_H_
 
 // kDisableWindows10CustomTitlebar

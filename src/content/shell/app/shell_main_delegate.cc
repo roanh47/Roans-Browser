@@ -162,7 +162,7 @@ void InitLogging(const base::CommandLine& command_line) {
 #else
       base::PathService::Get(base::DIR_EXE, &log_filename);
 #endif
-      log_filename = log_filename.AppendASCII("thorium_shell.log");
+      log_filename = log_filename.AppendASCII("roansbrowser_shell.log");
     }
   }
 

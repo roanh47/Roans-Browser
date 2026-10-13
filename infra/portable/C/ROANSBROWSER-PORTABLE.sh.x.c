@@ -2,7 +2,7 @@
 	shc Version 4.0.3, Generic Shell Script Compiler
 	GNU GPL Version 3 Md Jahidul Hamid <jahidulhamid@yahoo.com>
 
-	shc -r -v -o ./THORIUM-PORTABLE -f ./THORIUM-PORTABLE.sh 
+	shc -r -v -o ./ROANSBROWSER-PORTABLE -f ./ROANSBROWSER-PORTABLE.sh 
 #endif
 
 static  char data [] = 
